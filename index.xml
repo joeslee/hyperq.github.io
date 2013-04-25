@@ -3,7 +3,7 @@
   <title>hyperq</title>
   <link href="http://hyperq.github.io/index.xml" rel="self" />
   <link href="http://hyperq.github.io"/>
-  <updated>2013-04-25T18:45:39Z</updated>
+  <updated>2013-04-25T21:41:47Z</updated>
   <id>http://hyperq.github.io/index.xml</id>
   <entry>
 <title type="html">hyperq</title>
@@ -53,7 +53,7 @@ Before you know it, you'll be wanting to be a hyperq_t and join in the fun.
 <id>http://hyperq.github.io/blog/zipline.html</id>
 <content type="html">&lt;p&gt;
 Zipline is an open-source project that is a candidate for collaboration and
-other synergies with the HFT project.
+other synergies with hyperq.
 &lt;/p&gt;
 
 &lt;p&gt;
@@ -182,7 +182,7 @@ change (watch this space).
 &lt;li&gt;exploring automated deployment and build options
 &lt;/li&gt;
 &lt;li&gt;discussing the relative strengths and weaknesses of python versus R, as they
-apply to the hft problem domain.
+apply to the problem domain.
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -1399,7 +1399,7 @@ a minute.
 &lt;div class="outline-text-2" id="text-3"&gt;
 &lt;p&gt;
 The ticks for the day were processed into column-data formats using the mmap
-package from R (see hft.org for the gory details).
+package from R (see hyperq.org for the gory details).
 &lt;/p&gt;
 
 &lt;p&gt;
@@ -1678,7 +1678,7 @@ a free trial
 <id>http://hyperq.github.io/blog/candidate-structure.html</id>
 <category scheme="http://hyperq.github.io/tags/design.html" term="design" label="design"/>
 <content type="html">&lt;p&gt;
-hft is in an experimental phase and, as such, there is a need for flexibility
+hyperq is in an experimental phase and, as such, there is a need for flexibility
 in the top-down design of the system. To achieve this, the overall design is
 first being modelled using graphviz.  The current candidate system looks like this:
 &lt;/p&gt;
