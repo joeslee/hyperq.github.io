@@ -1,0 +1,881 @@
+// scarce style sheet xyzzy
+@import "o-blog.less";
+
+@colorLink: rgb(0,92,181);
+@colorBody: rgb(20,20,20);
+@colorHeader: rgb(78,78,78);
+@colorGreyText: rgb(117,117,117);
+@colorLeftBorder: rgb(235,235,235);
+@colorMenubar: rgb(0,92,181);
+@colorLinkHover: rgb(0,128,255);
+@colorBodyBackground: rgb(253,253,253);
+@colorNavTop: rgb(57,88,117);
+@colorNavBottom: rgb(74,114,151);
+@colorMenuLink: rgb(205,199,209);
+@colorMenuLinkHover: rgb(243,241,243);
+@colorPostLink: rgb(85,85,85);
+@colorTumblrBlue: rgb(57,88,117);
+@colorPostLinkHover: @colorLinkHover;
+@colorScarceBlue: rgb(31,57,80);
+@colorNavBorder: rgb(37,37,37);
+@colorTooltipBackground: rgb(235,235,235);
+@colorTooltip: @colorBody; 
+@colorButtonStart: @colorScarceBlue;
+@colorButtonEnd: rgb(20,20,20);
+@colorLastBorder: rgb(100,100,0);
+
+@import url("http://fonts.googleapis.com/css?family=Droid+Serif:400,200,300,700&subset=latin,latin-ext");
+@import url("http://fonts.googleapis.com/css?family=Droid+Sans:400,200,300,700&subset=latin,latin-ext");
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Droid Serif","Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+p, body {
+    font-family: "Droid Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@monoFontFamily: "Ubuntu Mono",Menlo, Monaco, Consolas, "Courier New";
+@sansFontFamily: "Droid Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+
+html{
+        font-size:100%;
+        -webkit-text-size-adjust:100%;
+        -ms-text-size-adjust:100%
+    }
+    
+    body{
+        margin:0;
+        color: @colorBody;    
+        position:relative;
+        padding:0 0 1em 0;
+        font-weight:normal;
+        font-style:normal;
+        font-variant:normal;
+        font-size:1.313em;
+        line-height:1.524em;
+        background-color: @colorBodyBackground;
+        -webkit-text-size-adjust:100%;
+        text-rendering:optimizeLegibility
+    }
+    
+    a {
+        color:@colorLink;
+        text-decoration:none;
+    }
+    
+    a:hover, a:active, a:focus {
+        color: @colorLinkHover;
+        text-decoration:none;
+        border-bottom:1px dotted @colorLinkHover;
+    }
+
+    li {
+        line-height: 1.313em;
+    }
+
+    .article-content ul {
+        margin: 20px 0px;
+    }
+
+    .article-content ul li {
+        list-style: none;
+        position: relative;
+        counter-increment: this;
+        line-height: 1.313em;
+        margin-left: 1em;
+    }
+    
+    .article-content ul li:after {
+        content: "-";
+        position: absolute;
+        left: -1em;
+        top: 0;
+        font-size: 100%;
+        color: @colorGreyText;
+    }
+    
+    .article-content ol li:after {
+        content: counter(this) '.';
+    }
+
+
+    blockquote {
+        padding: 0px 0px 0px 15px;
+        margin: 0px 0px 25px;
+        font-style:italic;
+        border-left: 3px solid @colorLeftBorder;
+        border-left-style: solid;
+        p {
+            font-size: 1em;
+            font-weight: 300;
+        }
+        
+    }
+        
+    blockquote::before{
+        content:''
+    }
+    
+    blockquote::after{
+        content:''
+    }
+    
+    #disqus_thread,
+    .article-content, 
+    .article-header {
+        width:662px;
+        margin:0px auto;
+        max-width: 90%;
+    }
+    
+    h1{
+        margin:0 0 0.5em 0;
+        font-size:1.524em;
+        line-height:1.5em;
+    }
+    
+    .blog-header {
+        color: @colorHeader;
+    }
+        
+    
+    h2{
+        margin:0 0 0.5em 0;
+        font-size:1.333em;
+        line-height:1.429em;
+    }
+    
+    .date-header {
+        color: @colorGreyText;
+        font-weight: normal;
+    }
+    
+      
+    h3 {
+        margin:0 0 0.5em 0;
+        font-size:1em;
+        font-style:normal;
+        line-height:1.524em
+    }
+    
+    .article-header {
+        padding-top: 1em;
+    }
+    
+    .container {
+        width: auto
+    }
+    
+    .navbar {
+        font-size: 0.75em;
+        .brand {
+            padding: 10px 20px 12px 20px;
+        }
+    }
+
+
+#page .article-content .outline-3 {
+  margin-left: 0em;
+}
+
+.hero-unit {
+    background-image: url(../../assets/img/grid_@2X.png);
+    background-size: auto;
+    background-repeat: repeat;
+    background-color: transparent;
+    padding: 30px 60px;
+}
+
+.hero-words {
+   font-size: 0.8em;
+   line-height: 1.2em;
+   padding: 0px 60px;
+}
+
+.hero-chart {
+   max-size:100%;
+   background-color:transparent;
+}
+
+a.image-link:hover, a.hero-button:hover {
+   border-bottom: none;
+}
+
+.hero-button {
+      background-color: @colorScarceBlue !important;
+      background-repeat: repeat-x;
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="@colorButtonStart", endColorstr="@colorButtonEnd");
+      background-image: -khtml-gradient(linear, left top, left bottom, from(@colorButtonStart), to(@colorButtonEnd));
+      background-image: -moz-linear-gradient(top, @colorButtonStart, @colorButtonEnd);
+      background-image: -ms-linear-gradient(top, @colorButtonStart, @colorButtonEnd);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @colorButtonStart), color-stop(100%, @colorButtonEnd));
+      background-image: -webkit-linear-gradient(top, @colorButtonStart, @colorButtonEnd);
+      background-image: -o-linear-gradient(top, @colorButtonStart, @colorButtonEnd);
+      background-image: linear-gradient(@colorButtonStart, @colorButtonEnd);
+      border-color: @colorButtonEnd @colorButtonEnd @colorLastBorder;
+      color: @colorMenuLink;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.62);
+      -webkit-font-smoothing: antialiased;
+      margin: 20px 0px;
+}
+
+.hero-button:hover,
+.hero-button:focus {
+      color: @colorMenuLinkHover;
+  background-position: 0px;
+}
+
+.navbar .navbar-inner {
+    background-color: @colorScarceBlue;
+    border-color: @colorNavBorder;
+    background-image: none;
+  }
+  
+  .navbar .brand {
+    font-size: 20px;
+  }
+  
+  .navbar {
+      margin-bottom: 4px;
+  }
+
+  .navbar,
+  .breadcrumb {
+    font-size: 0.75em;
+    line-height: 13.68px;
+  }
+
+  .navbar .nav-collapse .nav > li > a,
+  .navbar .nav-collapse .dropdown-menu a,
+  .navbar .brand,
+  .navbar .nav > li > a {
+    color: @colorMenuLink;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .navbar .brand:hover,
+  .navbar .nav > li > a:hover,
+  .navbar .brand:focus,
+  .navbar .nav > li > a:focus,
+  .navbar .nav-collapse .dropdown-menu a:hover,
+  .navbar .nav-collapse .dropdown-menu a:focus
+  .navbar .nav-collapse .nav > li > a:hover,
+  .navbar .nav-collapse .nav > li > a:focus,
+  {
+    background-color: transparent;
+    color: @colorMenuLinkHover;
+    border-bottom: none;
+  }
+
+  .dropdown-menu {
+    background-color:@colorScarceBlue;
+  }
+
+  li.dropdown.open .dropdown-menu {
+    display:block;
+  }
+
+  .dropdown .dropdown-menu {
+    display:none;
+  }
+
+  .navbar-inverse .nav li.dropdown.open > .dropdown-toggle,
+  .navbar-inverse .nav li.dropdown.active > .dropdown-toggle,
+  .navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
+  background-color: transparent;
+  color: @colorMenuLinkHover;
+}
+
+@navbarCollapseWidth: 630px;
+    
+    @media (min-width: @navbarCollapseWidth) {
+        .nav-collapse.collapse {
+            height: auto !important;
+            overflow: visible !important;
+        }
+        .navbar .btn-navbar {
+            display:none;
+        }  
+        
+    }
+  
+    @media (max-width: @navbarCollapseWidth) {
+        .nav-collapse.collapse {
+            height: 0px;
+            overflow: hidden;
+        }
+        .navbar .btn-navbar {
+            display:block;
+        }  
+    }
+
+  .nav-collapse .nav > li > a,
+  .nav-collapse .dropdown-menu a {
+    font-weight: normal;
+    }
+.navbar-inverse .nav-collapse .nav > li > a:hover,
+  .navbar-inverse .nav-collapse .dropdown-menu a:hover {
+    background-color: transparent;
+  }
+    
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  border-bottom:none;
+}
+
+#page {  
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+#footer {
+    color: @colorBody;
+    background-color: @colorBodyBackground;
+    background-image: none;
+    padding-top: 20px;
+    .copyright {
+        opacity:  1;
+        margin-top: 0em;
+        p {
+            font-size: 100%;
+        }
+    }
+}
+
+#sidebar {
+    border-left-color: @colorLeftBorder;
+    border-left-style: solid;
+    padding: 0px 20px;
+    font-size: 0.75em;
+}
+#sidebar ul{
+list-style:none
+}
+#sidebar ul li ul li{
+margin:0
+}
+#sidebar a{
+color:@colorLink;
+text-decoration:none;
+border-bottom:1px solid @colorLink
+}
+#sidebar a:hover{
+color: @colorLinkHover;
+border-bottom:1px solid @colorLinkHover
+}
+#sidebar,h2.pagetitle{
+    padding-top:1em;
+    margin-top:1em
+}
+
+#sidebar h2{
+color:#666;
+margin:0 0 6px 0;
+padding:0
+}
+
+
+#sidebar a.postlink,
+nav.tag-detail > li > a
+{
+color: @colorPostLink;
+text-decoration:none;
+border-bottom: none
+}
+
+#sidebar a.postlink:hover,
+nav.tag-detail > li >a:hover
+{
+color: @colorPostLinkHover;
+text-decoration:none;
+border-bottom:1px solid @colorPostLinkHover
+}
+    
+@media only screen and (max-width: 767px){
+    #sidebar {
+        width:536;
+        max-width:90%;
+        position:relative;
+        margin: 0px auto;
+        border-top-color: @colorLeftBorder;
+        border-top-style: solid;
+        border-bottom-color: @colorLeftBorder;
+        border-bottom-style: solid;
+        border-left-style: none;
+        padding:20px 20px;
+        }
+}
+
+a.image-link:hover > .tooltip {
+        opacity:1;
+        visibility: visible;
+}
+
+a.image-link > .tooltip  {
+        -webkit-border-radius:3px;
+        -moz-border-radius:3px;
+        border-radius:3px;
+        display:block;
+        position:relative;
+        top:0px;
+        right:0;
+        padding:3px 8px;
+        line-height:1.5em;
+        white-space:nowrap;
+        background-color:@colorTooltipBackground;
+        color:@colorTooltip;
+        font-size:0.8em;
+        visibility:hidden;
+
+}  
+
+a.image-link > .tooltip:after {
+        position:absolute;
+        top:-8px;
+        right:13px;
+        width:0;
+        height:0;
+        border:4px solid transparent;
+        border-bottom-color:#eee;
+        content:" "
+}
+
+.arrow_nav .top {
+  top: 0px;
+}
+
+.arrow_nav {
+        -webkit-border-radius:3px;
+        -moz-border-radius:3px;
+        border-radius:3px;
+        display:block;
+        position:relative;
+        float:right;
+        right:8px;
+        background-color: transparent;
+}
+
+
+.arrow_nav a {
+        text-transform:lowercase;
+        display:block;
+        width:auto;
+        height:1.5em;
+        position:relative;
+        float:left;
+        padding:0px;
+        font-size:0.8em;
+        line-height:2.05882em;
+        color: @colorPostLink;
+        text-decoration:none;
+}
+  
+.arrow_nav a > .tooltip
+{
+        -webkit-border-radius:3px;
+        -moz-border-radius:3px;
+        border-radius:3px;
+        display:none;
+        position:absolute;
+        top:40px;
+        right:0;
+        padding:3px 8px;
+        line-height:1.5em;
+        white-space:nowrap;
+        background-color:@colorTooltipBackground;
+        color:@colorTooltip;
+        font-size:0.8em;
+
+}
+
+.arrow_nav a > .tooltip:after {
+        position:absolute;
+        top:-8px;
+        right:13px;
+        width:0;
+        height:0;
+        border:4px solid transparent;
+        border-bottom-color:#eee;
+        content:" "
+}
+
+.arrow_nav a.previous .label {
+        padding-left:16px
+}
+
+.arrow_nav a.next .label{
+        padding-right:16px
+}
+
+.arrow_nav a.next .symbol{
+        right:8px
+}
+
+.arrow_nav a:first-child:after{
+        display:inline-block;
+        width:1px;
+        position:relative;
+        right:0;
+        top:4px;
+        bottom:4px;
+        background-color:#555;
+        content:''
+}
+
+.arrow_nav a:hover{
+        -webkit-border-radius:3px;
+        -moz-border-radius:3px;
+        border-radius:3px;
+        background-color:#333
+}
+
+.arrow_nav a:hover > .tooltip{
+        display:block;
+}
+  
+.arrow_nav.bottom{
+        bottom:8px
+}
+
+.arrow_nav.bottom a .tooltip{
+        top:-30px
+}
+
+.arrow_nav.bottom a .tooltip:after{
+        top:auto;
+        bottom:-8px;
+        border-bottom-color:transparent;
+        border-top-color:#eee
+}
+
+a.previous.skiphover, 
+a.next.skiphover {
+  color: @colorScarceBlue;
+  font-size:0.9em;
+  line-height:1.5em;
+}
+
+a.previous.skiphover:hover, 
+a.next.skiphover:hover,
+a.previous.skiphover:focus, 
+a.next.skiphover:focus
+{
+  border-bottom:none;
+  background-color:transparent;
+  .tooltip {
+    opacity:1;
+  }
+}
+
+a.previous.skiphover > .symbol,
+a.next.skiphover > .symbol,
+a.previous.skiphover > .label,
+a.next.skiphover > .label {
+  color: @colorPostLink;
+  background-color: transparent;
+  padding:0px;
+  font-weight: normal;
+  text-shadow:none;
+  font-size:0.9em;
+  line-height:1.5em;
+}
+
+a.previous.skiphover > .symbol:hover,
+a.next.skiphover > .symbol:hover,
+a.previous.skiphover > .symbol:focus,
+a.next.skiphover > .symbol:focus,
+a.previous.skiphover > .label:hover,
+a.next.skiphover > .label:hover,
+a.previous.skiphover > .label:focus,
+a.next.skiphover > .label:focus
+{
+  color: @colorPostLinkHover;
+  border-bottom: none;
+}
+
+.sepline {
+    margin: 0px 5px 0px 0px;
+    padding: 0.75em 0px;
+    border-left-color: @colorLeftBorder;
+    border-left-style: solid;
+    float:left;
+
+}
+
+.get-scarce {
+  margin-top: 20px;
+}
+
+ul.nav > li > a.caret-before {
+padding-right:2px;
+}
+
+ul.nav > li > a.caret-after {
+padding-left: 2px;
+padding-right: 2px;
+}
+
+ul.nav > li.dropdown > a.caret-after > b.caret:hover,
+ul.nav > li.dropdown > a.dropdown-toggle.caret-after:hover {
+border-top-color: @colorMenuLinkHover;
+}
+
+      ul.nav > li.dropdown {
+         padding-left: 0px;
+      }
+
+ul.nav > li.dropdown > ul.dropdown-menu {
+  left: -60px;
+}
+
+nav.archives ul,
+nav.tag-detail ul {
+list-style-type:none;
+}  
+
+nav.archives ul a,
+nav.tag-detail ul a {
+      color: @colorPostLink;
+      text-decoration:none;
+}
+nav.archives ul a:hover,
+nav.tag-detail ul a:hover {
+      color: @colorPostLinkHover;
+      text-decoration:none;
+      border-bottom:1px solid @colorPostLinkHover
+}
+
+td.left, th.left {
+  text-align:left;
+}
+
+td.right, th.right {
+  text-align:right;
+}
+
+table > caption {
+  color: @colorGreyText;
+  font-weight:300;
+  margin: 20px 0px;
+}
+
+table {
+  margin: 30px 0px;
+}
+
+// a comment line
+code {
+background-color: rgb(120,0,0);
+color: white;
+border: 3px solid rgb(250,250,250)
+}
+
+.gist, #page pre.src, #page pre.example {
+  background: none repeat scroll 0% 0% rgb(248,248,248);
+  border: 1px solid rgb(204,204,204);
+  font-size: 0.8em;
+  line-height: 1.25em;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+  margin: 15px 0px;
+  font-family: Consolas,"Liberation Mono",Courier,monospace;
+  box-shadow: none;
+  color: rgb(20,20,20);
+  word-break: normal;
+  word-wrap: normal;
+  white-space: pre;
+  resize: both;
+}
+
+.org-comment-delimiter, 
+.org-comment {
+  color: rgb(153,153,136);
+}
+
+.org-function-name {
+  color: rgb(68,85,136);
+  font-weight: bold;
+}
+
+.org-variable-name {
+  color: rgb(0,128,128);
+}
+
+.org-string {
+  color: rgb(221,17,68);
+}
+
+.article-content img {
+    float: left;
+    margin: 0px 30px 20px 0px;
+    max-width: 100%;
+}
+
+.article-content object {
+   float: left;
+   margin: 0px 30px 20px 0px;
+   max-width: 100%;
+}
+
+#small-object {
+  width: 60%;
+}
+
+svg { 
+  max-height: 100%; 
+}
+
+#page .article-content .outline-1 {
+  margin-left: 0;
+}
+#page .article-content .outline-2 {
+  margin-left: 0;
+}
+#page .article-content .outline-3 {
+  margin-left: 0;
+}
+#page .article-content .outline-4 {
+  margin-left: 0;
+}
+#page .article-content .outline-5 {
+  margin-left: 0;
+}
+#page .article-content .outline-6 {
+  margin-left: 0;
+}
+.MathJax_Display {
+text-align: left !important;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .article-content {
+        font-size: 1em;
+        line-height: 1.313em
+    }
+
+    .container {
+        width: auto
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+        font-size: 1.125em;
+        line-height: 1.5em;
+    }
+    
+    h1 {
+        font-size: 1.667em;
+        line-height: 1.2em;
+    }
+    
+    h2 {
+        font-size: 1.333em;
+        line-height: 1.5em;
+    }
+    
+    h3 {
+        font-size: 1em;
+        line-height: 1.5em;
+    }
+    
+    p {
+        margin-bottom: 1em;
+    }
+    
+    ol, ul, blockquote {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    
+    ul > li {
+        background-position: left 10px;
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    .hero-chart {
+        max-width: 80%;
+    }
+          
+    .navbar, .breadcrumb {
+        font-size: 0.9em;
+    }
+    
+    .navbar .brand {
+        font-size: 20px;
+    }    
+}
+
+@media only screen and 
+    (min-width: 321px) and 
+    (max-width: 767px) {
+
+    #disqus_thread,
+    #sidebar, 
+    .article-content, 
+    .article-header {
+        width:432px;
+        max-width:90%;
+        position: relative;
+        margin: 0px auto;
+    }
+    
+    lo {
+        margin-left:40px;
+        padding-left:9px;
+    }
+                
+    ul.nav > li.dropdown {
+       padding-left: 0px;
+    }
+
+    blockquote {
+        margin:1.5em 40px 1.5em 40px;
+        padding-left:9px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+
+    #disqus_thread,
+    .article-content, 
+    .article-header {
+        width:288px;
+        max-width: 95%;
+        margin: 0px auto;
+    }
+    
+    lo {
+        margin-left:24px;
+        padding-left:9px;
+    }
+    
+    ul {
+        margin-left:19px;
+    }
+    
+    ul li {
+        padding-left:14px;
+    }
+    
+    blockquote {
+        margin:1.5em 24px 1.5em 24px;
+        padding-left:9px;
+    }
+}
+
+@media screen {
+    #page .article-content img {
+        margin-left: 0;
+        margin-right: 30px;
+    }  
+}

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>http://hyperq.github.io/</loc>
+    <lastmod>2013-04-25T18:45:39Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hyperq.github.io/index.html</loc>
+    <lastmod>2013-04-25T18:45:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+<url>
+    <loc>http://hyperq.github.io/tags.html</loc>
+    <lastmod>2013-04-25T18:45:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+<url>
+    <loc>http://hyperq.github.io/about.html</loc>
+    <lastmod>2013-04-11T15:47:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+<url>
+    <loc>http://hyperq.github.io/blog/latency-research/index.html</loc>
+    <lastmod>2013-04-25T18:45:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+<url>
+    <loc>http://hyperq.github.io/blog/statistical-forecasting/index.html</loc>
+    <lastmod>2013-04-25T18:45:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+<url>
+    <loc>http://hyperq.github.io/blog/signal-prediction/index.html</loc>
+    <lastmod>2013-04-25T18:45:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+
+
+  <url>
+    <loc>http://hyperq.github.io/blog/hyperq.html</loc>
+    <lastmod>2013-04-25T17:55:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<url>
+    <loc>http://hyperq.github.io/blog/zipline.html</loc>
+    <lastmod>2013-04-23T15:11:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<url>
+    <loc>http://hyperq.github.io/blog/project-news-april-232013.html</loc>
+    <lastmod>2013-04-23T14:44:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<url>
+    <loc>http://hyperq.github.io/blog/signal-prediction.html</loc>
+    <lastmod>2013-04-22T17:12:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<url>
+    <loc>http://hyperq.github.io/blog/statistical-forecasting.html</loc>
+    <lastmod>2013-04-17T16:23:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<url>
+    <loc>http://hyperq.github.io/blog/latency-research.html</loc>
+    <lastmod>2013-04-12T16:46:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<url>
+    <loc>http://hyperq.github.io/blog/market-feed-selection.html</loc>
+    <lastmod>2013-04-12T12:46:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<url>
+    <loc>http://hyperq.github.io/blog/candidate-structure.html</loc>
+    <lastmod>2013-04-11T16:46:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
+
