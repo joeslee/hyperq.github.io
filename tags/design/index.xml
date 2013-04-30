@@ -3,9 +3,82 @@
   <title>hyperq</title>
   <link href="http://hyperq.github.io/index.xml" rel="self" />
   <link href="http://hyperq.github.io"/>
-  <updated>2013-04-25T21:41:48Z</updated>
+  <updated>2013-04-30T11:21:46Z</updated>
   <id>http://hyperq.github.io/index.xml</id>
   <entry>
+<title type="html">Event Feed Design</title>
+<author><name>Tony Day</name></author>
+<link href="http://hyperq.github.io/blog/event-feed-design.html"/>
+<updated>2013-04-30T10:48:00Z</updated>
+<published>2013-04-30T10:48:00Z</published>
+<id>http://hyperq.github.io/blog/event-feed-design.html</id>
+<content type="html">&lt;p&gt;
+The hyperq_team is currently looking at development priorities and, whilst
+the votes aren't all in, designing and building the event feed is a hot
+favorite.  At the moment, the component is labeled as a market data stream but I'd like
+to broaden the definition.  
+&lt;/p&gt;
+
+&lt;p&gt;
+Concentrating solely on market trades, bids and asks for an individual
+security in an effort to fully understand what's happening with price is a
+dangerous activity. We think there's a lot to be gained by &lt;i&gt;always&lt;/i&gt; accounting
+for broad market conditions &lt;i&gt;before&lt;/i&gt; you start to do statistical analytics on
+a particular security. Before you decide that &lt;code&gt;goog&lt;/code&gt; is &amp;lt;insert forecast
+metaphor here&amp;gt;, you should check first as to whether the overall &lt;code&gt;market&lt;/code&gt; is
+&amp;lt;insert forecast here&amp;gt; as well. If you look really, really closely, you
+might find that the &lt;code&gt;market&lt;/code&gt; starts trending &lt;i&gt;before&lt;/i&gt; &lt;code&gt;goog&lt;/code&gt; does, and you
+have yourself an immediate edge.
+&lt;/p&gt;
+
+&lt;p&gt;
+This statistical arbitrage analogy can be extended beyond market data into
+market news flow. As a human, if I see a news item on Google, the very first next
+thing I do is look at recent Google price movements. If this could be automated (and it
+can) a news flow can trigger a recent order history lookup, a calculation of
+'price spikiness', a switch to including the security in the event stream.
+With 1000 news flow items a day we're going to find a handful of fat pitch
+opportunities.
+&lt;/p&gt;
+
+&lt;p&gt;
+Even more broadly, social media news flow is evolving rapidly and could be a
+great source of automated idea generation.  A recent example, and fellow
+startup is &lt;a href="http://www.ftsee.com/"&gt;http://www.ftsee.com/&lt;/a&gt;.  Machine-readable news flow, json-based API,
+easy ticker lookups - it's going to be a joy hooking this up after the pain
+involved with old and creaking market data feed APIs.
+&lt;/p&gt;
+
+&lt;p&gt;
+So I wonder what we'll find when we crunch the correlations between intra-day
+returns and intra-day ftsee sentiment?  If we do find something I'm not sure we'll
+be telling unless you're a contributor ;)
+&lt;/p&gt;
+
+&lt;p&gt;
+The concept of an event stream can also be extended towards events that happen
+inside the hyperq internals. If the internet goes down or (more likely) my son
+hacks into the dedicated line to steam the latest 30gig TF2 upgrade, then
+that's an event much more important than any external data streaming in (or
+not streaming in). Stop calculating the finer nuances of market stochastics,
+please, and start prepping for panic trading on link resumption.  Another
+example is the risk management component - knowing that near-term P&amp;amp;L is
+dependent on a few key positions should mean that event processing needs to
+be prioritized for these securities.  And the best and fastest way to get at
+event processors may well be a message sent via the event stream.
+&lt;/p&gt;
+
+&lt;p&gt;
+So we're thinking about an event stream very broadly and including concepts
+other than market data and even external data. I think we can think this way
+because of our commitment to a modern multi-toolkit over the pure speed java
+approach. You can do things in haskell that can't be imagined in imperative
+languages, and you can create things with a multi-tool structure that can't
+be created in any single language.
+&lt;/p&gt;
+</content>
+</entry>
+<entry>
 <title type="html">hyperq</title>
 <author><name>Tony Day</name></author>
 <link href="http://hyperq.github.io/blog/hyperq.html"/>
