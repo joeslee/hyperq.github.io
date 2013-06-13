@@ -3,269 +3,14 @@
   <title>hyperq</title>
   <link href="http://hyperq.github.io/index.xml" rel="self" />
   <link href="http://hyperq.github.io"/>
-  <updated>2013-04-30T11:21:46Z</updated>
+  <updated>2013-06-13T15:59:56Z</updated>
   <id>http://hyperq.github.io/index.xml</id>
   <entry>
-<title type="html">Event Feed Design</title>
-<author><name>Tony Day</name></author>
-<link href="http://hyperq.github.io/blog/event-feed-design.html"/>
-<updated>2013-04-30T10:48:00Z</updated>
-<published>2013-04-30T10:48:00Z</published>
-<id>http://hyperq.github.io/blog/event-feed-design.html</id>
-<content type="html">&lt;p&gt;
-The hyperq_team is currently looking at development priorities and, whilst
-the votes aren't all in, designing and building the event feed is a hot
-favorite.  At the moment, the component is labeled as a market data stream but I'd like
-to broaden the definition.  
-&lt;/p&gt;
-
-&lt;p&gt;
-Concentrating solely on market trades, bids and asks for an individual
-security in an effort to fully understand what's happening with price is a
-dangerous activity. We think there's a lot to be gained by &lt;i&gt;always&lt;/i&gt; accounting
-for broad market conditions &lt;i&gt;before&lt;/i&gt; you start to do statistical analytics on
-a particular security. Before you decide that &lt;code&gt;goog&lt;/code&gt; is &amp;lt;insert forecast
-metaphor here&amp;gt;, you should check first as to whether the overall &lt;code&gt;market&lt;/code&gt; is
-&amp;lt;insert forecast here&amp;gt; as well. If you look really, really closely, you
-might find that the &lt;code&gt;market&lt;/code&gt; starts trending &lt;i&gt;before&lt;/i&gt; &lt;code&gt;goog&lt;/code&gt; does, and you
-have yourself an immediate edge.
-&lt;/p&gt;
-
-&lt;p&gt;
-This statistical arbitrage analogy can be extended beyond market data into
-market news flow. As a human, if I see a news item on Google, the very first next
-thing I do is look at recent Google price movements. If this could be automated (and it
-can) a news flow can trigger a recent order history lookup, a calculation of
-'price spikiness', a switch to including the security in the event stream.
-With 1000 news flow items a day we're going to find a handful of fat pitch
-opportunities.
-&lt;/p&gt;
-
-&lt;p&gt;
-Even more broadly, social media news flow is evolving rapidly and could be a
-great source of automated idea generation.  A recent example, and fellow
-startup is &lt;a href="http://www.ftsee.com/"&gt;http://www.ftsee.com/&lt;/a&gt;.  Machine-readable news flow, json-based API,
-easy ticker lookups - it's going to be a joy hooking this up after the pain
-involved with old and creaking market data feed APIs.
-&lt;/p&gt;
-
-&lt;p&gt;
-So I wonder what we'll find when we crunch the correlations between intra-day
-returns and intra-day ftsee sentiment?  If we do find something I'm not sure we'll
-be telling unless you're a contributor ;)
-&lt;/p&gt;
-
-&lt;p&gt;
-The concept of an event stream can also be extended towards events that happen
-inside the hyperq internals. If the internet goes down or (more likely) my son
-hacks into the dedicated line to steam the latest 30gig TF2 upgrade, then
-that's an event much more important than any external data streaming in (or
-not streaming in). Stop calculating the finer nuances of market stochastics,
-please, and start prepping for panic trading on link resumption.  Another
-example is the risk management component - knowing that near-term P&amp;amp;L is
-dependent on a few key positions should mean that event processing needs to
-be prioritized for these securities.  And the best and fastest way to get at
-event processors may well be a message sent via the event stream.
-&lt;/p&gt;
-
-&lt;p&gt;
-So we're thinking about an event stream very broadly and including concepts
-other than market data and even external data. I think we can think this way
-because of our commitment to a modern multi-toolkit over the pure speed java
-approach. You can do things in haskell that can't be imagined in imperative
-languages, and you can create things with a multi-tool structure that can't
-be created in any single language.
-&lt;/p&gt;
-</content>
-</entry>
-<entry>
-<title type="html">hyperq</title>
-<author><name>Tony Day</name></author>
-<link href="http://hyperq.github.io/blog/hyperq.html"/>
-<updated>2013-04-25T17:55:00Z</updated>
-<published>2013-04-25T17:55:00Z</published>
-<id>http://hyperq.github.io/blog/hyperq.html</id>
-<content type="html">&lt;p&gt;
-Our little project just got a little bit bigger today and is moving away from
-the personal repository to a shiny new open-source organization called hyperq.
-We're busy underneath hoods tinkering with link changes, repo structures and
-the usual stuff, and apologies in advance if service gets interupted.
-&lt;/p&gt;
-
-&lt;div id="outline-container-sec-1" class="outline-2"&gt;
-&lt;h2 id="sec-1"&gt;What does hyperq stand for?&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-1"&gt;
-&lt;p&gt;
-Lots of things.  The name was the end result of thinking of many, many cool
-names to do with HFT, machine learning, algorithms and trading, all of which
-turned out to be taken already on github.
-&lt;/p&gt;
-
-&lt;p&gt;
-The project is all about achieving high profits (hy-p) by building high
-performance software (hy-per) for High-Frequency Trading (the hy, I suppose).
-And it's about putting the q back in quant when it comes to thinking about
-low-latency. It's going to be both (q)uick and smart.
-&lt;/p&gt;
-
-&lt;p&gt;
-But to do all of that we need help (and a touch of patience). A tweet of
-encouragement is nice to get, a short critique of our repos even nicer.
-Before you know it, you'll be wanting to be a hyperq_t and join in the fun.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</content>
-</entry>
-<entry>
-<title type="html">zipline</title>
-<author><name>Tony Day</name></author>
-<link href="http://hyperq.github.io/blog/zipline.html"/>
-<updated>2013-04-23T15:11:00Z</updated>
-<published>2013-04-23T15:11:00Z</published>
-<id>http://hyperq.github.io/blog/zipline.html</id>
-<content type="html">&lt;p&gt;
-Zipline is an open-source project that is a candidate for collaboration and
-other synergies with hyperq.
-&lt;/p&gt;
-
-&lt;p&gt;
-Zipline is the open-source backtesting engine (written in Python) underlying
-Quantopian, an online trading systems development IDE (again, Python-based)
-and community. Quantopian offers 10 years of 1min data for US stocks and the
-backtesting IDE for free but they plan to generate income from a future
-facility for automating live trade execution.
-&lt;/p&gt;
-
-&lt;p&gt;
-&lt;a href="https://www.quantopian.com/faq"&gt;https://www.quantopian.com/faq&lt;/a&gt;
-&lt;a href="https://www.quantopian.com/help"&gt;https://www.quantopian.com/help&lt;/a&gt;
-&lt;a href="https://github.com/quantopian/zipline/blob/master/README.md"&gt;https://github.com/quantopian/zipline/blob/master/README.md&lt;/a&gt;
-&lt;/p&gt;
-
-&lt;p&gt;
-To use the zipline engine, you basically create a Python class that subclasses
-zipline's TradingAlgorithm base class and implement 2 methods, one to
-initialize() data at the start of strategy execution and and another,
-handle_data(), to react to data events (e.g. buy on MA crossover) which are
-typically OHLCV bars but could be of other types such as ticks, corporate
-actions, etc. A strategy is executed by calling the trading algorithm's run()
-method and passing in a data source. Various backtesting metrics are returned
-by the run() method.
-&lt;/p&gt;
-
-&lt;p&gt;
-Base functionality includes:
-&lt;/p&gt;
-&lt;ul class="org-ul"&gt;
-&lt;li&gt;Loaders for retrieving data from local files, online sources such as yahoo
-(no live data feeds - data is downloaded in its entirety prior to strategy
-execution) and the US treasury website for risk-free rates used in metrics
-such as the Sharpe ratio
-&lt;/li&gt;
-
-&lt;li&gt;Multiple symbols can be tracked within a dataset and referenced in a single
-strategy execution
-&lt;/li&gt;
-
-&lt;li&gt;A few basic technical indicators out of the box such as simple moving
-average, returns, standard deviation of prices and VWAP
-&lt;/li&gt;
-
-&lt;li&gt;Data is provisioned to the strategy via events on the backtest timeline to
-reflect live trading and reduce the scope for future data snooping
-&lt;/li&gt;
-
-&lt;li&gt;Only market orders supported - no doubt limit and stop orders are planned as
-a future enhancement
-&lt;/li&gt;
-
-&lt;li&gt;Trade execution includes 2 slippage models and a basic commission calc
-&lt;/li&gt;
-
-&lt;li&gt;No order book model
-&lt;/li&gt;
-
-&lt;li&gt;A portfolio of holdings can be accumulated and tracked
-&lt;/li&gt;
-
-&lt;li&gt;A variety of metrics are calculated cumulatively and per-period (daily basis
-if intraday bars are used) e.g. strategy and benchmark (defaults to SPX)
-returns, drawdown, sharpe ratio, sortino ratio, etc
-&lt;/li&gt;
-
-&lt;li&gt;Mainly focused on stocks for the time being e.g. the concept of end of
-trading day seems to be important vs day continuous trading of forex and
-overnight trading of futures, no margin trading
-&lt;/li&gt;
-
-&lt;li&gt;Of course there's plenty of scope to extend the base functionality through
-custom code - this may be more constrained in the IDE than in a local
-development environment.
-&lt;/li&gt;
-
-&lt;li&gt;Trading system optimization isn't supported yet but appears to be an active
-area of research for a future enhancement. One of the developers gave a talk
-at the recent PyData conference about using IPython Parallel, StarCluster,
-etc. to spawn multiple parallel workers in the cloud as well as covering
-techniques to efficiently search the parameter space including a Bayesian
-approach for identifying high probability regions to maximize the objective
-function.
-
-&lt;p&gt;
-&lt;a href="http://vimeo.com/63273425"&gt;http://vimeo.com/63273425&lt;/a&gt;
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;
-The gist below is a first pass through the codebase tracking the call stack
-and classes/objects involved in the execution of the trading algorithm run()
-method for the supplied dual moving average sample strategy and recorded the
-main features in a single file. This is useful to quickly refresh memory
-of the code flow rather than wading though multiple source files.
-&lt;/p&gt;
-
-&lt;p&gt;
-&lt;a href="https://gist.github.com/cmahon/e72e0e08de2986c2180d"&gt;https://gist.github.com/cmahon/e72e0e08de2986c2180d&lt;/a&gt;
-&lt;/p&gt;
-</content>
-</entry>
-<entry>
-<title type="html">Project News April 23,2013</title>
-<author><name>Tony Day</name></author>
-<link href="http://hyperq.github.io/blog/project-news-april-232013.html"/>
-<updated>2013-04-23T14:44:00Z</updated>
-<published>2013-04-23T14:44:00Z</published>
-<id>http://hyperq.github.io/blog/project-news-april-232013.html</id>
-<content type="html">&lt;p&gt;
-A discussion group has been formed at &lt;a href="https://groups.google.com/forum/?hl=en&amp;fromgroups#!forum/hft-discuss"&gt;hft-discuss&lt;/a&gt;
-&lt;/p&gt;
-
-&lt;p&gt;
-Some near-term goals include:
-&lt;/p&gt;
-&lt;ul class="org-ul"&gt;
-&lt;li&gt;moving the project to an organization basis (which will involve a name
-change (watch this space).
-&lt;/li&gt;
-&lt;li&gt;installing a modern communication toolkit
-&lt;/li&gt;
-&lt;li&gt;exploring automated deployment and build options
-&lt;/li&gt;
-&lt;li&gt;discussing the relative strengths and weaknesses of python versus R, as they
-apply to the problem domain.
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-</entry>
-<entry>
 <title type="html">Signal Prediction</title>
 <author><name>Tony Day</name></author>
 <link href="http://hyperq.github.io/blog/signal-prediction.html"/>
-<updated>2013-04-22T17:12:00Z</updated>
-<published>2013-04-22T17:12:00Z</published>
+<updated>2013-06-13T15:59:00Z</updated>
+<published>2013-06-13T15:59:00Z</published>
 <id>http://hyperq.github.io/blog/signal-prediction.html</id>
 <category scheme="http://hyperq.github.io/tags/r.html" term="R" label="R"/>
 <content type="html">&lt;script type="text/javascript"
@@ -904,6 +649,261 @@ refactored name.  Previous post referred to weighted.historical
 &lt;/div&gt;</content>
 </entry>
 <entry>
+<title type="html">Event Feed Design</title>
+<author><name>Tony Day</name></author>
+<link href="http://hyperq.github.io/blog/event-feed-design.html"/>
+<updated>2013-04-30T10:48:00Z</updated>
+<published>2013-04-30T10:48:00Z</published>
+<id>http://hyperq.github.io/blog/event-feed-design.html</id>
+<content type="html">&lt;p&gt;
+The hyperq_team is currently looking at development priorities and, whilst
+the votes aren't all in, designing and building the event feed is a hot
+favorite.  At the moment, the component is labeled as a market data stream but I'd like
+to broaden the definition.  
+&lt;/p&gt;
+
+&lt;p&gt;
+Concentrating solely on market trades, bids and asks for an individual
+security in an effort to fully understand what's happening with price is a
+dangerous activity. We think there's a lot to be gained by &lt;i&gt;always&lt;/i&gt; accounting
+for broad market conditions &lt;i&gt;before&lt;/i&gt; you start to do statistical analytics on
+a particular security. Before you decide that &lt;code&gt;goog&lt;/code&gt; is &amp;lt;insert forecast
+metaphor here&amp;gt;, you should check first as to whether the overall &lt;code&gt;market&lt;/code&gt; is
+&amp;lt;insert forecast here&amp;gt; as well. If you look really, really closely, you
+might find that the &lt;code&gt;market&lt;/code&gt; starts trending &lt;i&gt;before&lt;/i&gt; &lt;code&gt;goog&lt;/code&gt; does, and you
+have yourself an immediate edge.
+&lt;/p&gt;
+
+&lt;p&gt;
+This statistical arbitrage analogy can be extended beyond market data into
+market news flow. As a human, if I see a news item on Google, the very first next
+thing I do is look at recent Google price movements. If this could be automated (and it
+can) a news flow can trigger a recent order history lookup, a calculation of
+'price spikiness', a switch to including the security in the event stream.
+With 1000 news flow items a day we're going to find a handful of fat pitch
+opportunities.
+&lt;/p&gt;
+
+&lt;p&gt;
+Even more broadly, social media news flow is evolving rapidly and could be a
+great source of automated idea generation.  A recent example, and fellow
+startup is &lt;a href="http://www.ftsee.com/"&gt;http://www.ftsee.com/&lt;/a&gt;.  Machine-readable news flow, json-based API,
+easy ticker lookups - it's going to be a joy hooking this up after the pain
+involved with old and creaking market data feed APIs.
+&lt;/p&gt;
+
+&lt;p&gt;
+So I wonder what we'll find when we crunch the correlations between intra-day
+returns and intra-day ftsee sentiment?  If we do find something I'm not sure we'll
+be telling unless you're a contributor ;)
+&lt;/p&gt;
+
+&lt;p&gt;
+The concept of an event stream can also be extended towards events that happen
+inside the hyperq internals. If the internet goes down or (more likely) my son
+hacks into the dedicated line to steam the latest 30gig TF2 upgrade, then
+that's an event much more important than any external data streaming in (or
+not streaming in). Stop calculating the finer nuances of market stochastics,
+please, and start prepping for panic trading on link resumption.  Another
+example is the risk management component - knowing that near-term P&amp;amp;L is
+dependent on a few key positions should mean that event processing needs to
+be prioritized for these securities.  And the best and fastest way to get at
+event processors may well be a message sent via the event stream.
+&lt;/p&gt;
+
+&lt;p&gt;
+So we're thinking about an event stream very broadly and including concepts
+other than market data and even external data. I think we can think this way
+because of our commitment to a modern multi-toolkit over the pure speed java
+approach. You can do things in haskell that can't be imagined in imperative
+languages, and you can create things with a multi-tool structure that can't
+be created in any single language.
+&lt;/p&gt;
+</content>
+</entry>
+<entry>
+<title type="html">hyperq</title>
+<author><name>Tony Day</name></author>
+<link href="http://hyperq.github.io/blog/hyperq.html"/>
+<updated>2013-04-25T17:55:00Z</updated>
+<published>2013-04-25T17:55:00Z</published>
+<id>http://hyperq.github.io/blog/hyperq.html</id>
+<content type="html">&lt;p&gt;
+Our little project just got a little bit bigger today and is moving away from
+the personal repository to a shiny new open-source organization called hyperq.
+We're busy underneath hoods tinkering with link changes, repo structures and
+the usual stuff, and apologies in advance if service gets interupted.
+&lt;/p&gt;
+
+&lt;div id="outline-container-sec-1" class="outline-2"&gt;
+&lt;h2 id="sec-1"&gt;What does hyperq stand for?&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+Lots of things.  The name was the end result of thinking of many, many cool
+names to do with HFT, machine learning, algorithms and trading, all of which
+turned out to be taken already on github.
+&lt;/p&gt;
+
+&lt;p&gt;
+The project is all about achieving high profits (hy-p) by building high
+performance software (hy-per) for High-Frequency Trading (the hy, I suppose).
+And it's about putting the q back in quant when it comes to thinking about
+low-latency. It's going to be both (q)uick and smart.
+&lt;/p&gt;
+
+&lt;p&gt;
+But to do all of that we need help (and a touch of patience). A tweet of
+encouragement is nice to get, a short critique of our repos even nicer.
+Before you know it, you'll be wanting to be a hyperq_t and join in the fun.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+</entry>
+<entry>
+<title type="html">zipline</title>
+<author><name>Tony Day</name></author>
+<link href="http://hyperq.github.io/blog/zipline.html"/>
+<updated>2013-04-23T15:11:00Z</updated>
+<published>2013-04-23T15:11:00Z</published>
+<id>http://hyperq.github.io/blog/zipline.html</id>
+<content type="html">&lt;p&gt;
+Zipline is an open-source project that is a candidate for collaboration and
+other synergies with hyperq.
+&lt;/p&gt;
+
+&lt;p&gt;
+Zipline is the open-source backtesting engine (written in Python) underlying
+Quantopian, an online trading systems development IDE (again, Python-based)
+and community. Quantopian offers 10 years of 1min data for US stocks and the
+backtesting IDE for free but they plan to generate income from a future
+facility for automating live trade execution.
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;a href="https://www.quantopian.com/faq"&gt;https://www.quantopian.com/faq&lt;/a&gt;
+&lt;a href="https://www.quantopian.com/help"&gt;https://www.quantopian.com/help&lt;/a&gt;
+&lt;a href="https://github.com/quantopian/zipline/blob/master/README.md"&gt;https://github.com/quantopian/zipline/blob/master/README.md&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+To use the zipline engine, you basically create a Python class that subclasses
+zipline's TradingAlgorithm base class and implement 2 methods, one to
+initialize() data at the start of strategy execution and and another,
+handle_data(), to react to data events (e.g. buy on MA crossover) which are
+typically OHLCV bars but could be of other types such as ticks, corporate
+actions, etc. A strategy is executed by calling the trading algorithm's run()
+method and passing in a data source. Various backtesting metrics are returned
+by the run() method.
+&lt;/p&gt;
+
+&lt;p&gt;
+Base functionality includes:
+&lt;/p&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;Loaders for retrieving data from local files, online sources such as yahoo
+(no live data feeds - data is downloaded in its entirety prior to strategy
+execution) and the US treasury website for risk-free rates used in metrics
+such as the Sharpe ratio
+&lt;/li&gt;
+
+&lt;li&gt;Multiple symbols can be tracked within a dataset and referenced in a single
+strategy execution
+&lt;/li&gt;
+
+&lt;li&gt;A few basic technical indicators out of the box such as simple moving
+average, returns, standard deviation of prices and VWAP
+&lt;/li&gt;
+
+&lt;li&gt;Data is provisioned to the strategy via events on the backtest timeline to
+reflect live trading and reduce the scope for future data snooping
+&lt;/li&gt;
+
+&lt;li&gt;Only market orders supported - no doubt limit and stop orders are planned as
+a future enhancement
+&lt;/li&gt;
+
+&lt;li&gt;Trade execution includes 2 slippage models and a basic commission calc
+&lt;/li&gt;
+
+&lt;li&gt;No order book model
+&lt;/li&gt;
+
+&lt;li&gt;A portfolio of holdings can be accumulated and tracked
+&lt;/li&gt;
+
+&lt;li&gt;A variety of metrics are calculated cumulatively and per-period (daily basis
+if intraday bars are used) e.g. strategy and benchmark (defaults to SPX)
+returns, drawdown, sharpe ratio, sortino ratio, etc
+&lt;/li&gt;
+
+&lt;li&gt;Mainly focused on stocks for the time being e.g. the concept of end of
+trading day seems to be important vs day continuous trading of forex and
+overnight trading of futures, no margin trading
+&lt;/li&gt;
+
+&lt;li&gt;Of course there's plenty of scope to extend the base functionality through
+custom code - this may be more constrained in the IDE than in a local
+development environment.
+&lt;/li&gt;
+
+&lt;li&gt;Trading system optimization isn't supported yet but appears to be an active
+area of research for a future enhancement. One of the developers gave a talk
+at the recent PyData conference about using IPython Parallel, StarCluster,
+etc. to spawn multiple parallel workers in the cloud as well as covering
+techniques to efficiently search the parameter space including a Bayesian
+approach for identifying high probability regions to maximize the objective
+function.
+
+&lt;p&gt;
+&lt;a href="http://vimeo.com/63273425"&gt;http://vimeo.com/63273425&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;
+The gist below is a first pass through the codebase tracking the call stack
+and classes/objects involved in the execution of the trading algorithm run()
+method for the supplied dual moving average sample strategy and recorded the
+main features in a single file. This is useful to quickly refresh memory
+of the code flow rather than wading though multiple source files.
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;a href="https://gist.github.com/cmahon/e72e0e08de2986c2180d"&gt;https://gist.github.com/cmahon/e72e0e08de2986c2180d&lt;/a&gt;
+&lt;/p&gt;
+</content>
+</entry>
+<entry>
+<title type="html">Project News April 23,2013</title>
+<author><name>Tony Day</name></author>
+<link href="http://hyperq.github.io/blog/project-news-april-232013.html"/>
+<updated>2013-04-23T14:44:00Z</updated>
+<published>2013-04-23T14:44:00Z</published>
+<id>http://hyperq.github.io/blog/project-news-april-232013.html</id>
+<content type="html">&lt;p&gt;
+A discussion group has been formed at &lt;a href="https://groups.google.com/forum/?hl=en&amp;fromgroups#!forum/hft-discuss"&gt;hft-discuss&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+Some near-term goals include:
+&lt;/p&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;moving the project to an organization basis (which will involve a name
+change (watch this space).
+&lt;/li&gt;
+&lt;li&gt;installing a modern communication toolkit
+&lt;/li&gt;
+&lt;li&gt;exploring automated deployment and build options
+&lt;/li&gt;
+&lt;li&gt;discussing the relative strengths and weaknesses of python versus R, as they
+apply to the problem domain.
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+</entry>
+<entry>
 <title type="html">Statistical Forecasting</title>
 <author><name>Tony Day</name></author>
 <link href="http://hyperq.github.io/blog/statistical-forecasting.html"/>
@@ -1290,6 +1290,7 @@ of the proposed system design.
 <published>2013-04-12T16:46:00Z</published>
 <id>http://hyperq.github.io/blog/latency-research.html</id>
 <category scheme="http://hyperq.github.io/tags/research.html" term="research" label="research"/>
+<category scheme="http://hyperq.github.io/tags/r.html" term="R" label="R"/>
 <content type="html">&lt;p&gt;
 I collected trade and order ticks for 12 contracts on 14th March from iqfeed,
 and timestamped each tick with current system time. There was about 8 million
@@ -1694,12 +1695,12 @@ g &lt;span style="color: #b9a16c;"&gt;+&lt;/span&gt; &lt;span style="color: #7a9
 </content>
 </entry>
 <entry>
-<title type="html">Market Feed Selection</title>
+<title type="html">market feed choices</title>
 <author><name>Tony Day</name></author>
-<link href="http://hyperq.github.io/blog/market-feed-selection.html"/>
+<link href="http://hyperq.github.io/blog/market-feed-choices.html"/>
 <updated>2013-04-12T12:46:00Z</updated>
 <published>2013-04-12T12:46:00Z</published>
-<id>http://hyperq.github.io/blog/market-feed-selection.html</id>
+<id>http://hyperq.github.io/blog/market-feed-choices.html</id>
 <content type="html">&lt;p&gt;
 There is no such thing as live market data for free (please let us know if
 this is wrong!).
@@ -1740,18 +1741,85 @@ be gaps in the event stream.
 a free trial
 &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;div id="outline-container-sec-1" class="outline-2"&gt;
+&lt;h2 id="sec-1"&gt;iqfeed&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;&lt;div id="outline-container-sec-1-1" class="outline-3"&gt;
+&lt;h3 id="sec-1-1"&gt;Port comms&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+There are 4 main communication points to iqfeed:
+&lt;/p&gt;
+
+&lt;p&gt;
+Level1Port         5009         Streaming Level 1 Data and News
+Level2Port         9200         Streaming Market Depth and NASDAQ Level 2 Data
+LookupPort         9100         Historical Data, Symbol Lookup, News Lookup, and Chains Lookup information
+AdminPort         9300         Connection data and management.
+&lt;/p&gt;
+
+&lt;p&gt;
+More information can be obtained at &lt;a href="https://www.iqfeed.net/dev/api/docsBeta/Introduction.cfm"&gt;DTN IQFeed Developer Area&lt;/a&gt; or &lt;a href="https://www.iqfeed.net/dev/main.cfm"&gt;https://www.iqfeed.net/dev/main.cfm&lt;/a&gt;
+(for a price).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-sec-1-2" class="outline-3"&gt;
+&lt;h3 id="sec-1-2"&gt;Setup info&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;p&gt;
+iqfeed is available for download via
+&lt;a href="http://www.iqfeed.net/index.cfm?displayaction=support&amp;section=download"&gt;http://www.iqfeed.net/index.cfm?displayaction=support&amp;section=download&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+Personally, my development environment is on a mac so I need to start and
+manage the process via wine.
+&lt;/p&gt;
+
+&lt;p&gt;
+From the command line:
+&lt;/p&gt;
+
+&lt;p&gt;
+For the demo product (delayed feed):
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+
+&lt;pre class="src src-sh"&gt;&lt;span style="color: #dc8cc3; background-color: #383838;"&gt;wine &lt;/span&gt;&lt;span style="color: #cc9393; background-color: #383838;"&gt;"Z:\\Users\\tonyday\\wine\\iqfeed\\iqconnect.exe"&lt;/span&gt;&lt;span style="color: #dc8cc3; background-color: #383838;"&gt; -product IQFEED_DEMO -version 1&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class="org-src-container"&gt;
+
+&lt;pre class="src src-sh"&gt;nc localhost 5009
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+For a live account:
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+
+&lt;pre class="src src-sh"&gt;&lt;span style="color: #dc8cc3; background-color: #383838;"&gt;wine &lt;/span&gt;&lt;span style="color: #cc9393; background-color: #383838;"&gt;"Z:\\Users\\tonyday\\wine\\iqfeed\\iqconnect.exe"&lt;/span&gt;&lt;span style="color: #dc8cc3; background-color: #383838;"&gt; &amp;#8209;product yourproductid &amp;#8209;version 0.1 &amp;#8209;login yourlogin &amp;#8209;password yourpassword -autoconnect -savelogininfo&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </content>
 </entry>
 <entry>
-<title type="html">Candidate Structure</title>
+<title type="html">Design Experimentation</title>
 <author><name>Tony Day</name></author>
-<link href="http://hyperq.github.io/blog/candidate-structure.html"/>
+<link href="http://hyperq.github.io/blog/design-experimentation.html"/>
 <updated>2013-04-11T16:46:00Z</updated>
 <published>2013-04-11T16:46:00Z</published>
-<id>http://hyperq.github.io/blog/candidate-structure.html</id>
+<id>http://hyperq.github.io/blog/design-experimentation.html</id>
 <category scheme="http://hyperq.github.io/tags/design.html" term="design" label="design"/>
 <content type="html">&lt;p&gt;
-hyperq is in an experimental phase and, as such, there is a need for flexibility
+hyperq is an experiment in runtime design and, as such, there is a need for flexibility
 in the top-down design of the system. To achieve this, the overall design is
 first being modelled using graphviz.  The current candidate system looks like this:
 &lt;/p&gt;
@@ -1774,7 +1842,6 @@ need to be very very fast (blue lines)
 state and dynamics (grey dotted).
 &lt;/li&gt;
 &lt;/ul&gt;
-
 
 &lt;p&gt;
 The components have been grouped into several clusters:
@@ -1821,10 +1888,10 @@ And here's the dot code:
 
 &lt;div class="org-src-container"&gt;
 
-&lt;pre class="src src-dot"&gt;digraph &lt;span style="color: #8cd0d3;"&gt;G&lt;/span&gt; {
+&lt;pre class="src src-dot"&gt;digraph &lt;span style="color: #836fff;"&gt;G&lt;/span&gt; {
         node [&lt;span style="color: #dfaf8f;"&gt;label=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"\N"&lt;/span&gt;];
         node [&lt;span style="color: #dfaf8f;"&gt;style=&lt;/span&gt;&lt;span style="color: #b9a16c;"&gt;filled&lt;/span&gt;, &lt;span style="color: #dfaf8f;"&gt;color=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#1f3950"&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;fontcolor=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#eeeeee"&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;shape=&lt;/span&gt;&lt;span style="color: #b9a16c;"&gt;box&lt;/span&gt;];
-        subgraph &lt;span style="color: #8cd0d3;"&gt;cluster&lt;/span&gt;_market_data {
+        subgraph &lt;span style="color: #836fff;"&gt;cluster&lt;/span&gt;_market_data {
                 graph [&lt;span style="color: #dfaf8f;"&gt;label=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"market data"&lt;/span&gt;, &lt;span style="color: #dfaf8f;"&gt;color=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#909090"&lt;/span&gt;];
                 exchange [&lt;span style="color: #dfaf8f;"&gt;shape=&lt;/span&gt;&lt;span style="color: #b9a16c;"&gt;egg&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;color=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#ff111111"&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;fontcolor=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#101010"&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;label=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"exchanges"&lt;/span&gt;];
                 aggregator [&lt;span style="color: #dfaf8f;"&gt;shape=&lt;/span&gt;&lt;span style="color: #b9a16c;"&gt;egg&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;color=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#cc11cc22"&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;fontcolor=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#101010"&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;label=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"data stream"&lt;/span&gt;];
@@ -1832,7 +1899,7 @@ And here's the dot code:
                 exchange -&amp;gt; aggregator [&lt;span style="color: #dfaf8f;"&gt;dir=&lt;/span&gt;&lt;span style="color: #b9a16c;"&gt;none&lt;/span&gt;];
                 aggregator -&amp;gt; localport [&lt;span style="color: #dfaf8f;"&gt;dir=&lt;/span&gt;&lt;span style="color: #b9a16c;"&gt;both&lt;/span&gt;];
         }
-        subgraph &lt;span style="color: #8cd0d3;"&gt;cluster&lt;/span&gt;_offwire {
+        subgraph &lt;span style="color: #836fff;"&gt;cluster&lt;/span&gt;_offwire {
                 graph [&lt;span style="color: #dfaf8f;"&gt;label=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"offwire"&lt;/span&gt;,
                         &lt;span style="color: #dfaf8f;"&gt;color=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#909090"&lt;/span&gt;];
                 offwirealgo [&lt;span style="color: #dfaf8f;"&gt;label=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"offline algo"&lt;/span&gt;];
@@ -1840,7 +1907,7 @@ And here's the dot code:
                 databases;
                 observer -&amp;gt; databases [&lt;span style="color: #dfaf8f;"&gt;color=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;red&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;label=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"write"&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;fontcolor=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;red&lt;/span&gt;];
         }
-        subgraph &lt;span style="color: #8cd0d3;"&gt;cluster&lt;/span&gt;_onwire {
+        subgraph &lt;span style="color: #836fff;"&gt;cluster&lt;/span&gt;_onwire {
                 graph [&lt;span style="color: #dfaf8f;"&gt;label=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"onwire"&lt;/span&gt;,
                         &lt;span style="color: #dfaf8f;"&gt;color=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#909090"&lt;/span&gt;];
                 node [&lt;span style="color: #dfaf8f;"&gt;style=&lt;/span&gt;&lt;span style="color: #b9a16c;"&gt;filled&lt;/span&gt;];
@@ -1853,7 +1920,7 @@ And here's the dot code:
                 disruptor -&amp;gt; controller;
                 controller -&amp;gt; disruptor [&lt;span style="color: #dfaf8f;"&gt;color=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#0080ff"&lt;/span&gt;];
         }
-        subgraph &lt;span style="color: #8cd0d3;"&gt;cluster&lt;/span&gt;_broker {
+        subgraph &lt;span style="color: #836fff;"&gt;cluster&lt;/span&gt;_broker {
                 graph [&lt;span style="color: #dfaf8f;"&gt;label=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"broker data"&lt;/span&gt;,
                         &lt;span style="color: #dfaf8f;"&gt;color=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#909090"&lt;/span&gt;];
                 broker [&lt;span style="color: #dfaf8f;"&gt;shape=&lt;/span&gt;&lt;span style="color: #b9a16c;"&gt;egg&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;color=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#ff111111"&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;fontcolor=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#101010"&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;label=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"brokers"&lt;/span&gt;];
@@ -1874,263 +1941,6 @@ And here's the dot code:
         offwirealgo -&amp;gt; observer [&lt;span style="color: #dfaf8f;"&gt;color=&lt;/span&gt;&lt;span style="color: #cc9393;"&gt;"#aaaaaa"&lt;/span&gt;,&lt;span style="color: #dfaf8f;"&gt;style=&lt;/span&gt;&lt;span style="color: #b9a16c;"&gt;dotted&lt;/span&gt;];
 }
 &lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div id="outline-container-sec-1" class="outline-2"&gt;
-&lt;h2 id="sec-1"&gt;haskell interaction&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-1"&gt;
-&lt;p&gt;
-Via haskell, the dot chart can be the specifications for an actual system as well as a
-representation. And via svg technology, the picture can also be modified to
-be a reporting front-end in a production environment.
-&lt;/p&gt;
-
-&lt;div class="org-src-container"&gt;
-
-&lt;pre class="src src-haskell"&gt;&lt;span style="color: #f0dfaf; font-weight: bold;"&gt;module&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;ControllerTest&lt;/span&gt;
-( importDotFile
-, importDot
-, printGraph
-, nodeList
-, edgeList
-) &lt;span style="color: #f0dfaf; font-weight: bold;"&gt;where&lt;/span&gt;
-
-&lt;span style="color: #f0dfaf; font-weight: bold;"&gt;import&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;Data.GraphViz&lt;/span&gt;
-&lt;span style="color: #f0dfaf; font-weight: bold;"&gt;import&lt;/span&gt; &lt;span style="color: #f0dfaf; font-weight: bold;"&gt;qualified&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;Data.Text.Lazy&lt;/span&gt; &lt;span style="color: #f0dfaf; font-weight: bold;"&gt;as&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;L&lt;/span&gt;
-&lt;span style="color: #f0dfaf; font-weight: bold;"&gt;import&lt;/span&gt; &lt;span style="color: #f0dfaf; font-weight: bold;"&gt;qualified&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;Data.Text.Lazy.IO&lt;/span&gt; &lt;span style="color: #f0dfaf; font-weight: bold;"&gt;as&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;I&lt;/span&gt;
-&lt;span style="color: #f0dfaf; font-weight: bold;"&gt;import&lt;/span&gt; &lt;span style="color: #f0dfaf; font-weight: bold;"&gt;qualified&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;Data.GraphViz.Types.Generalised&lt;/span&gt; &lt;span style="color: #f0dfaf; font-weight: bold;"&gt;as&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;G&lt;/span&gt;
-&lt;span style="color: #f0dfaf; font-weight: bold;"&gt;import&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;Data.Graph.Inductive.Graph&lt;/span&gt;
-
-&lt;span style="color: #8cd0d3;"&gt;importDotFile&lt;/span&gt; &lt;span style="color: #dfaf8f;"&gt;::&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;FilePath&lt;/span&gt; &lt;span style="color: #dfaf8f;"&gt;-&amp;gt;&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;IO&lt;/span&gt; (&lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;G.DotGraph&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;String&lt;/span&gt;)
-&lt;span style="color: #8cd0d3;"&gt;importDotFile&lt;/span&gt; f &lt;span style="color: #dfaf8f;"&gt;=&lt;/span&gt; &lt;span style="color: #f0dfaf; font-weight: bold;"&gt;do&lt;/span&gt;
-        dotText &lt;span style="color: #dfaf8f;"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;I&lt;/span&gt;&lt;span style="color: #dfaf8f;"&gt;.&lt;/span&gt;readFile f
-        return &lt;span style="color: #dfaf8f;"&gt;$&lt;/span&gt; parseDotGraph dotText
-
-&lt;span style="color: #8cd0d3;"&gt;importDot&lt;/span&gt; &lt;span style="color: #dfaf8f;"&gt;::&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;L.Text&lt;/span&gt; &lt;span style="color: #dfaf8f;"&gt;-&amp;gt;&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;G.DotGraph&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;Node&lt;/span&gt;
-&lt;span style="color: #8cd0d3;"&gt;importDot&lt;/span&gt; s &lt;span style="color: #dfaf8f;"&gt;=&lt;/span&gt; parseDotGraph s
-
-&lt;span style="color: #8cd0d3;"&gt;printGraph&lt;/span&gt; &lt;span style="color: #dfaf8f;"&gt;::&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;G.DotGraph&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;String&lt;/span&gt; &lt;span style="color: #dfaf8f;"&gt;-&amp;gt;&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;IO&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;()&lt;/span&gt;
-&lt;span style="color: #8cd0d3;"&gt;printGraph&lt;/span&gt; d &lt;span style="color: #dfaf8f;"&gt;=&lt;/span&gt; &lt;span style="color: #f0dfaf; font-weight: bold;"&gt;do&lt;/span&gt;
-        putStrLn &lt;span style="color: #dfaf8f;"&gt;$&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;L&lt;/span&gt;&lt;span style="color: #dfaf8f;"&gt;.&lt;/span&gt;unpack &lt;span style="color: #dfaf8f;"&gt;$&lt;/span&gt; printDotGraph d
-        return&lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;()&lt;/span&gt;
-
-&lt;span style="color: #8cd0d3;"&gt;nodeList&lt;/span&gt; &lt;span style="color: #dfaf8f;"&gt;::&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;G.DotGraph&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;String&lt;/span&gt; &lt;span style="color: #dfaf8f;"&gt;-&amp;gt;&lt;/span&gt; [&lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;String&lt;/span&gt;]
-&lt;span style="color: #8cd0d3;"&gt;nodeList&lt;/span&gt; g &lt;span style="color: #dfaf8f;"&gt;=&lt;/span&gt; map nodeID &lt;span style="color: #dfaf8f;"&gt;$&lt;/span&gt; graphNodes g
-
-&lt;span style="color: #8cd0d3;"&gt;edgeList&lt;/span&gt; &lt;span style="color: #dfaf8f;"&gt;::&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;G.DotGraph&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;String&lt;/span&gt; &lt;span style="color: #dfaf8f;"&gt;-&amp;gt;&lt;/span&gt; [(&lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;String&lt;/span&gt;,&lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;String&lt;/span&gt;)]
-&lt;span style="color: #8cd0d3;"&gt;edgeList&lt;/span&gt; g &lt;span style="color: #dfaf8f;"&gt;=&lt;/span&gt;  map (&lt;span style="color: #dfaf8f;"&gt;\&lt;/span&gt;x &lt;span style="color: #dfaf8f;"&gt;-&amp;gt;&lt;/span&gt; (fromNode x, toNode x)) &lt;span style="color: #dfaf8f;"&gt;$&lt;/span&gt; graphEdges g
-&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;
-So, a new picture generates a new system with potentially new components
-(nodes) and messaging requirements (edges).
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id="outline-container-sec-2" class="outline-2"&gt;
-&lt;h2 id="sec-2"&gt;edges&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-2"&gt;
-
-&lt;div class="org-src-container"&gt;
-
-&lt;pre class="src src-haskell"&gt;&lt;span style="color: #f0dfaf; font-weight: bold;"&gt;import&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;ControllerTest&lt;/span&gt;
-g &lt;span style="color: #dfaf8f;"&gt;&amp;lt;-&lt;/span&gt; importDotFile &lt;span style="color: #cc9393;"&gt;"../candidate.dot"&lt;/span&gt;
-&lt;span style="color: #8cd0d3;"&gt;edgeList&lt;/span&gt; g
-&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
-
-
-&lt;colgroup&gt;
-&lt;col class="left"/&gt;
-
-&lt;col class="left"/&gt;
-&lt;/colgroup&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td class="left"&gt;exchange&lt;/td&gt;
-&lt;td class="left"&gt;aggregator&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;aggregator&lt;/td&gt;
-&lt;td class="left"&gt;localport&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;observer&lt;/td&gt;
-&lt;td class="left"&gt;databases&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;controller&lt;/td&gt;
-&lt;td class="left"&gt;eventalgo&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;disruptor&lt;/td&gt;
-&lt;td class="left"&gt;listener&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;disruptor&lt;/td&gt;
-&lt;td class="left"&gt;eventalgo&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;disruptor&lt;/td&gt;
-&lt;td class="left"&gt;controller&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;controller&lt;/td&gt;
-&lt;td class="left"&gt;disruptor&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;broker&lt;/td&gt;
-&lt;td class="left"&gt;brokeraggregator&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;brokeraggregator&lt;/td&gt;
-&lt;td class="left"&gt;trader&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;localport&lt;/td&gt;
-&lt;td class="left"&gt;observer&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;controller&lt;/td&gt;
-&lt;td class="left"&gt;localport&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;localport&lt;/td&gt;
-&lt;td class="left"&gt;disruptor&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;listener&lt;/td&gt;
-&lt;td class="left"&gt;observer&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;controller&lt;/td&gt;
-&lt;td class="left"&gt;observer&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;controller&lt;/td&gt;
-&lt;td class="left"&gt;trader&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;controller&lt;/td&gt;
-&lt;td class="left"&gt;offwirealgo&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;databases&lt;/td&gt;
-&lt;td class="left"&gt;offwirealgo&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;trader&lt;/td&gt;
-&lt;td class="left"&gt;observer&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;eventalgo&lt;/td&gt;
-&lt;td class="left"&gt;observer&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;offwirealgo&lt;/td&gt;
-&lt;td class="left"&gt;observer&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id="outline-container-sec-3" class="outline-2"&gt;
-&lt;h2 id="sec-3"&gt;nodes&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-3"&gt;
-&lt;div class="org-src-container"&gt;
-
-&lt;pre class="src src-haskell"&gt;&lt;span style="color: #f0dfaf; font-weight: bold;"&gt;import&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;ControllerTest&lt;/span&gt;
-&lt;span style="color: #f0dfaf; font-weight: bold;"&gt;import&lt;/span&gt; &lt;span style="color: #8cd0d3; background-color: #3f3f3f;"&gt;Data.List&lt;/span&gt;
-g &lt;span style="color: #dfaf8f;"&gt;&amp;lt;-&lt;/span&gt; importDotFile &lt;span style="color: #cc9393;"&gt;"../dot/candidate.dot"&lt;/span&gt;
-&lt;span style="color: #8cd0d3;"&gt;map&lt;/span&gt; (&lt;span style="color: #dfaf8f;"&gt;\&lt;/span&gt;x &lt;span style="color: #dfaf8f;"&gt;-&amp;gt;&lt;/span&gt; [x]) &lt;span style="color: #dfaf8f;"&gt;$&lt;/span&gt; nodeList g
-&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
-
-
-&lt;colgroup&gt;
-&lt;col class="left"/&gt;
-&lt;/colgroup&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td class="left"&gt;aggregator&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;broker&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;brokeraggregator&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;controller&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;databases&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;disruptor&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;eventalgo&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;exchange&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;listener&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;localport&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;observer&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;offwirealgo&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class="left"&gt;trader&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 </content>
 </entry>

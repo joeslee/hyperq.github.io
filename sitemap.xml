@@ -2,21 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>http://hyperq.github.io/</loc>
-    <lastmod>2013-04-30T11:21:46Z</lastmod>
+    <lastmod>2013-06-13T15:59:55Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://hyperq.github.io/index.html</loc>
-    <lastmod>2013-04-30T11:21:00Z</lastmod>
+    <lastmod>2013-06-13T15:59:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
 <url>
     <loc>http://hyperq.github.io/tags.html</loc>
-    <lastmod>2013-04-30T11:21:00Z</lastmod>
+    <lastmod>2013-06-13T15:59:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -30,21 +30,21 @@
 
 <url>
     <loc>http://hyperq.github.io/blog/latency-research/index.html</loc>
-    <lastmod>2013-04-30T11:21:00Z</lastmod>
+    <lastmod>2013-06-13T15:59:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
 <url>
     <loc>http://hyperq.github.io/blog/statistical-forecasting/index.html</loc>
-    <lastmod>2013-04-30T11:21:00Z</lastmod>
+    <lastmod>2013-06-13T15:59:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
 <url>
     <loc>http://hyperq.github.io/blog/signal-prediction/index.html</loc>
-    <lastmod>2013-04-30T11:21:00Z</lastmod>
+    <lastmod>2013-06-13T15:59:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -52,6 +52,12 @@
 
 
   <url>
+    <loc>http://hyperq.github.io/blog/signal-prediction.html</loc>
+    <lastmod>2013-06-13T15:59:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<url>
     <loc>http://hyperq.github.io/blog/event-feed-design.html</loc>
     <lastmod>2013-04-30T10:48:00Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -76,12 +82,6 @@
     <priority>0.6</priority>
   </url>
 <url>
-    <loc>http://hyperq.github.io/blog/signal-prediction.html</loc>
-    <lastmod>2013-04-22T17:12:00Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<url>
     <loc>http://hyperq.github.io/blog/statistical-forecasting.html</loc>
     <lastmod>2013-04-17T16:23:00Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -94,13 +94,13 @@
     <priority>0.6</priority>
   </url>
 <url>
-    <loc>http://hyperq.github.io/blog/market-feed-selection.html</loc>
+    <loc>http://hyperq.github.io/blog/market-feed-choices.html</loc>
     <lastmod>2013-04-12T12:46:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 <url>
-    <loc>http://hyperq.github.io/blog/candidate-structure.html</loc>
+    <loc>http://hyperq.github.io/blog/design-experimentation.html</loc>
     <lastmod>2013-04-11T16:46:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

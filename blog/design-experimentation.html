@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Design Experimentation</title>
+    <link rel="stylesheet" type="text/css" href="../style/css/scarce.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="generator" content="o-blog version 1.2-149-g73e41e0"/>
+
+<script src="../style/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="../style/bootstrap/js/bootstrap-modal.js" type="text/javascript"></script>
+<script src="../style/bootstrap/js/bootstrap-transition.js" type="text/javascript"></script>
+<script src="../style/bootstrap/js/bootstrap-dropdown.js" type="text/javascript"></script>
+<script src="../style/bootstrap/js/bootstrap-collapse.js" type="text/javascript"></script>
+<script src="../style/js/prettify.js" type="text/javascript"></script>
+<script src="../style/js/o-blog.linenumber.js" type="text/javascript"></script>
+<script src="../style/js/o-blog-fix.js" type="text/javascript"></script>
+<script src="../style/js/scarce.js" type="text/javascript"></script>
+<script src="../style/js/twitter-bootstrap-hover-dropdown.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22236293-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!-- Le fav and touch icons -->
+<link rel="shortcut icon" href="../favicon.ico?v=2">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../style/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../style/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../style/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="../style/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-hover=".nav-collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="../index.html">hyperq</a>
+      <div class="nav-collapse collapse">
+          <ul class="nav">
+   <li>
+     <a href="../about.html"><i>icon-user icon-white</i> About</a>
+   </li>
+   <li>
+  <a class="caret-before" href="../blog/signal-prediction.html">
+       <i class="icon-coffee icon-white">
+       </i>
+       Blog
+     </a>
+  </li>
+   <li class="dropdown">
+ <a class="dropdown-toggle caret-after" data-toggle="dropdown" data-hover="dropdown" data-delay="2000">
+ </a>
+     <ul class="dropdown-menu">
+
+
+<li><a href="../blog/signal-prediction.html">Signal Prediction</a></li><li><a href="../blog/event-feed-design.html">Event Feed Design</a></li><li><a href="../blog/hyperq.html">hyperq</a></li><li><a href="../blog/zipline.html">zipline</a></li>
+
+  </ul>
+
+  </li>
+  <li><a href="https://github.com/hyperq/hyperq"><i>icon-github icon-white</i>repo</a>
+
+  </li>
+  <li><a href="../tags.html"><i>icon-tags icon-white</i> Tags</a>
+
+  </li>
+  <li><a href="../archives.html"><i>icon-list icon-white</i> Archives</a>
+
+  </li>
+  <li><a href="../index.xml"><i>icon-rss icon-white</i> RSS</a>
+  </li>
+  <li><a href="http://scarcecapital.com"><i>icon-home icon-white</i> scarce,</a>
+  </li>
+
+  </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div id="page">
+  <div class="row">    
+    <div class="arrow_nav top">
+      
+      <div class="sepline"></div>
+      <a class="previous skiphover" href="../blog/market-feed-choices.html">
+                                    <span class="label">
+                                       newer
+                                    </span>
+                                    <span class="symbol">
+                                       >
+                                    </span>                                      
+                                    <span class="tooltip">
+                                      market feed choices
+                                    </span>
+                                 </a>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span9">
+      <article>
+        <header class="article-header">
+          <h1 class="post-header">Design Experimentation</h1>
+          <h3 class="date-header"></h3>
+          <h3 class="date-header">11 April 2013</h3>
+        </header>
+        <div class="article-content">
+          <p>
+hyperq is an experiment in runtime design and, as such, there is a need for flexibility
+in the top-down design of the system. To achieve this, the overall design is
+first being modelled using graphviz.  The current candidate system looks like this:
+</p>
+
+<img class="hero-chart" src="../assets/candidate.svg" alt="design" width="100%">
+
+<ul class="org-ul">
+<li>blue boxes represent individual components of the system
+</li>
+<li>other colors represent external systems and data sources
+</li>
+<li>each edge of the chart represents a messaging sytem requirement
+</li>
+<li>there are two main one-way message passing routines that probably
+need to be very very fast (blue lines)
+</li>
+<li>there is one read from database and one write to database (red lines)
+</li>
+<li>every component registers to an observer component that records system
+state and dynamics (grey dotted).
+</li>
+</ul>
+
+<p>
+The components have been grouped into several clusters:
+</p>
+
+<ul class="org-ul">
+<li>market data: representing trade data, order book and news information
+flowing from outside the sytem to a local data node.
+</li>
+<li>broker data: representing communication with trading mechanisms
+</li>
+<li>onwire: components that are "in the event stream".  This is motivated by
+the specifications and documentation of the disruptor which argues that a
+single thread "wheel" is the best way to enable fast processing of market
+data into trading orders.
+</li>
+<li>offwire: this represents algorithms and processing that are not on the
+single-thread process.  The motivation here is to test the hypothesis in
+the disruptor argument.
+</li>
+</ul>
+
+<p>
+There are several ideas that are being tested:
+</p>
+
+<ul class="org-ul">
+<li>that the entire system should be the subject of search and optimisation,
+rather than componentry.  One example of this is separation of complex
+event definitions from the statistical analysis once events are defined.
+</li>
+<li>there is a focus on automation and machine learning.  As such there is no
+place for human interaction.  In particular, no visualization is required.
+</li>
+<li>messaging between components can be the same general process.  The
+components can also be tested in exactly the same way (such as speed and
+robustness testing)
+</li>
+</ul>
+
+<p>
+And here's the dot code:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-dot">digraph <span style="color: #836fff;">G</span> {
+        node [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"\N"</span>];
+        node [<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">filled</span>, <span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#1f3950"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">"#eeeeee"</span>,<span style="color: #dfaf8f;">shape=</span><span style="color: #b9a16c;">box</span>];
+        subgraph <span style="color: #836fff;">cluster</span>_market_data {
+                graph [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"market data"</span>, <span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#909090"</span>];
+                exchange [<span style="color: #dfaf8f;">shape=</span><span style="color: #b9a16c;">egg</span>,<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#ff111111"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">"#101010"</span>,<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"exchanges"</span>];
+                aggregator [<span style="color: #dfaf8f;">shape=</span><span style="color: #b9a16c;">egg</span>,<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#cc11cc22"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">"#101010"</span>,<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"data stream"</span>];
+                localport [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"local node"</span>];
+                exchange -&gt; aggregator [<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">none</span>];
+                aggregator -&gt; localport [<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">both</span>];
+        }
+        subgraph <span style="color: #836fff;">cluster</span>_offwire {
+                graph [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"offwire"</span>,
+                        <span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#909090"</span>];
+                offwirealgo [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"offline algo"</span>];
+                observer;
+                databases;
+                observer -&gt; databases [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">red</span>,<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"write"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">red</span>];
+        }
+        subgraph <span style="color: #836fff;">cluster</span>_onwire {
+                graph [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"onwire"</span>,
+                        <span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#909090"</span>];
+                node [<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">filled</span>];
+                disruptor [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"event server"</span>];
+                eventalgo [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"algo"</span>];
+                controller;
+                controller -&gt; eventalgo [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">both</span>]
+                disruptor -&gt; listener;
+                disruptor -&gt; eventalgo;
+                disruptor -&gt; controller;
+                controller -&gt; disruptor [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#0080ff"</span>];
+        }
+        subgraph <span style="color: #836fff;">cluster</span>_broker {
+                graph [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"broker data"</span>,
+                        <span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#909090"</span>];
+                broker [<span style="color: #dfaf8f;">shape=</span><span style="color: #b9a16c;">egg</span>,<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#ff111111"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">"#101010"</span>,<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"brokers"</span>];
+                brokeraggregator [<span style="color: #dfaf8f;">shape=</span><span style="color: #b9a16c;">egg</span>,<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#cc11cc22"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">"#101010"</span>,<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"aggregation"</span>];
+                broker -&gt; brokeraggregator [<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">none</span>];
+                brokeraggregator -&gt; trader [<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">both</span>];
+        }
+        localport -&gt; observer [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">dotted</span>];
+        controller -&gt; localport [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>];
+        localport -&gt; disruptor [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#0080ff"</span>];
+        listener -&gt; observer [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">dotted</span>];
+        controller -&gt; observer [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">dotted</span>];
+        controller -&gt; trader [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">both</span>];
+        controller -&gt; offwirealgo [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">both</span>];
+        databases -&gt; offwirealgo [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">red</span>,<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"read"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">red</span>];
+        trader -&gt; observer [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">dotted</span>];
+        eventalgo -&gt; observer [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">dotted</span>];
+        offwirealgo -&gt; observer [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">dotted</span>];
+}
+</pre>
+</div>
+
+        </div>
+      </article>
+    </div>  
+    <div class ="span3">
+      <div id="sidebar">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="design">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <!-- Place this tag where you want the +1 button to render. -->
+<div class="g-plusone" data-annotation="bubble" data-size="medium" data-width="300"></div>
+
+<!-- Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<div class="get-scarce">
+      <p>feeds:   <a href="https://twitter.com/hyperq_">Twitter</a> | <a href="../index.xml">RSS</a> | <a href="http://eepurl.com/xZDev">Email</a>
+      </p>
+</div>
+
+
+    <p>
+      Top Posts:
+      
+    </p>
+    <a class="postlink" href="../blog/signal-prediction.html">Signal Prediction</a><br><a class="postlink" href="../blog/event-feed-design.html">Event Feed Design</a><br><a class="postlink" href="../blog/statistical-forecasting.html">Statistical Forecasting</a><br><a class="postlink" href="../blog/latency-research.html">Latency Research</a>
+    <p><br>Related Articles:<br></p><a class="postlink" href="../tags/design.html">design</a>
+</div>
+
+    </div>
+  </div>
+  <div class="row-fluid">
+      <div class="span9">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'scarce'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
+
+  <hr>
+<div id="footer">
+  <div class="copyright" style="text-align: center;">
+    Copyright <a href="http://github.com/hyperq">hyperq</a> 2013-2013
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this work except in compliance with the License.
+You may obtain a copy of the License in the LICENSE file, or at:</p>
+
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+
+  </div>  
+  <p>
+    Powered by
+    <a href="http://twitter.github.com/bootstrap/">bootstrap</a>
+     via 
+    <a href="https://github.com/renard/o-blog">o-blog</a>.
+  </p>
+</div>
+
+</div>
+</body>
+</html>

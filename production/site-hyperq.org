@@ -2165,30 +2165,6 @@ of the proposed system design.
 :top:      t
 :END:
 
-*** fixup
-
-- [ ] wmom
-- [ ] log twice
-- [ ] fix formulae
-
-P[ sig(-1) > 0 ]
-= P[ sig(0) + delta_sig(-1) > 0 ]
-= P[ sig(0) + p(0)( .95.r(-1) - .05.Sum_0..18(r(i)) ) > 0 ]   // from your formula for delta_sig/p(0)
-= P[ r(-1) > ( -sig(0) + .05.p(0).Sum_0..18(r(i)) ) / .95.p(0) ]
-= P[ r(-1)/vol.est(0) > ( -sig(0) + .05.p(0).Sum_0..18(r(i)) ) / .95.p(0).vol.est(0) ] // converting to standard normal where mean of log return = 0 
-= 1 - N[ ( - sig(0) + .05.p(0).Sum_0..18(r(i)) ) / .95.p(0).vol.est(0) ]
-= N[ ( sig(0) - .05.p(0).Sum_0..18(r(i)) ) / .95.p(0).vol.est(0) ] // multiplying by -1
-
-I think you have:
-
-N[ ( sig(0) - .05.p_ma20(0).Sum_0..18(r(i)) ) / vol.est(0) ]
-
-based on:
-return.forecast = st.mean.forecast-c(0,wmean(log(1+sp500),weights.av19))
-price.ma.delta = c(0,price.ma[1:(length(price)-1)] * return.forecast[1:(length(price)-1)])
-gap.forecast.norm = (c(0,gap[1:(length(price)-1)])+price.ma.delta)/c(0.005,vol.est[1:(length(price)-1)])
-
-
 
 #+begin_html
 <script type="text/javascript"
