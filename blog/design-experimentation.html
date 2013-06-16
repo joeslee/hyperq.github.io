@@ -60,7 +60,7 @@
      <a href="../about.html"><i>icon-user icon-white</i> About</a>
    </li>
    <li>
-  <a class="caret-before" href="../blog/signal-prediction.html">
+  <a class="caret-before" href="../blog/trading-a-hacker-approach.html">
        <i class="icon-coffee icon-white">
        </i>
        Blog
@@ -72,7 +72,7 @@
      <ul class="dropdown-menu">
 
 
-<li><a href="../blog/signal-prediction.html">Signal Prediction</a></li><li><a href="../blog/event-feed-design.html">Event Feed Design</a></li><li><a href="../blog/hyperq.html">hyperq</a></li><li><a href="../blog/zipline.html">zipline</a></li>
+<li><a href="../blog/trading-a-hacker-approach.html">Trading: a hacker approach?</a></li><li><a href="../blog/event-feed-design.html">Event Feed Design</a></li><li><a href="../blog/hyperq.html">hyperq</a></li><li><a href="../blog/zipline.html">zipline</a></li>
 
   </ul>
 
@@ -197,57 +197,57 @@ And here's the dot code:
 
 <div class="org-src-container">
 
-<pre class="src src-dot">digraph <span style="color: #836fff;">G</span> {
-        node [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"\N"</span>];
-        node [<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">filled</span>, <span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#1f3950"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">"#eeeeee"</span>,<span style="color: #dfaf8f;">shape=</span><span style="color: #b9a16c;">box</span>];
-        subgraph <span style="color: #836fff;">cluster</span>_market_data {
-                graph [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"market data"</span>, <span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#909090"</span>];
-                exchange [<span style="color: #dfaf8f;">shape=</span><span style="color: #b9a16c;">egg</span>,<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#ff111111"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">"#101010"</span>,<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"exchanges"</span>];
-                aggregator [<span style="color: #dfaf8f;">shape=</span><span style="color: #b9a16c;">egg</span>,<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#cc11cc22"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">"#101010"</span>,<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"data stream"</span>];
-                localport [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"local node"</span>];
-                exchange -&gt; aggregator [<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">none</span>];
-                aggregator -&gt; localport [<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">both</span>];
+<pre class="src src-dot">digraph <span class="org-function-name">G</span> {
+        node [<span class="org-variable-name">label=</span><span class="org-string">"\N"</span>];
+        node [<span class="org-variable-name">style=</span><span class="org-constant">filled</span>, <span class="org-variable-name">color=</span><span class="org-string">"#1f3950"</span>,<span class="org-variable-name">fontcolor=</span><span class="org-string">"#eeeeee"</span>,<span class="org-variable-name">shape=</span><span class="org-constant">box</span>];
+        subgraph <span class="org-function-name">cluster</span>_market_data {
+                graph [<span class="org-variable-name">label=</span><span class="org-string">"market data"</span>, <span class="org-variable-name">color=</span><span class="org-string">"#909090"</span>];
+                exchange [<span class="org-variable-name">shape=</span><span class="org-constant">egg</span>,<span class="org-variable-name">color=</span><span class="org-string">"#ff111111"</span>,<span class="org-variable-name">fontcolor=</span><span class="org-string">"#101010"</span>,<span class="org-variable-name">label=</span><span class="org-string">"exchanges"</span>];
+                aggregator [<span class="org-variable-name">shape=</span><span class="org-constant">egg</span>,<span class="org-variable-name">color=</span><span class="org-string">"#cc11cc22"</span>,<span class="org-variable-name">fontcolor=</span><span class="org-string">"#101010"</span>,<span class="org-variable-name">label=</span><span class="org-string">"data stream"</span>];
+                localport [<span class="org-variable-name">label=</span><span class="org-string">"local node"</span>];
+                exchange -&gt; aggregator [<span class="org-variable-name">dir=</span><span class="org-constant">none</span>];
+                aggregator -&gt; localport [<span class="org-variable-name">dir=</span><span class="org-constant">both</span>];
         }
-        subgraph <span style="color: #836fff;">cluster</span>_offwire {
-                graph [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"offwire"</span>,
-                        <span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#909090"</span>];
-                offwirealgo [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"offline algo"</span>];
+        subgraph <span class="org-function-name">cluster</span>_offwire {
+                graph [<span class="org-variable-name">label=</span><span class="org-string">"offwire"</span>,
+                        <span class="org-variable-name">color=</span><span class="org-string">"#909090"</span>];
+                offwirealgo [<span class="org-variable-name">label=</span><span class="org-string">"offline algo"</span>];
                 observer;
                 databases;
-                observer -&gt; databases [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">red</span>,<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"write"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">red</span>];
+                observer -&gt; databases [<span class="org-variable-name">color=</span><span class="org-string">red</span>,<span class="org-variable-name">label=</span><span class="org-string">"write"</span>,<span class="org-variable-name">fontcolor=</span><span class="org-string">red</span>];
         }
-        subgraph <span style="color: #836fff;">cluster</span>_onwire {
-                graph [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"onwire"</span>,
-                        <span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#909090"</span>];
-                node [<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">filled</span>];
-                disruptor [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"event server"</span>];
-                eventalgo [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"algo"</span>];
+        subgraph <span class="org-function-name">cluster</span>_onwire {
+                graph [<span class="org-variable-name">label=</span><span class="org-string">"onwire"</span>,
+                        <span class="org-variable-name">color=</span><span class="org-string">"#909090"</span>];
+                node [<span class="org-variable-name">style=</span><span class="org-constant">filled</span>];
+                disruptor [<span class="org-variable-name">label=</span><span class="org-string">"event server"</span>];
+                eventalgo [<span class="org-variable-name">label=</span><span class="org-string">"algo"</span>];
                 controller;
-                controller -&gt; eventalgo [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">both</span>]
+                controller -&gt; eventalgo [<span class="org-variable-name">color=</span><span class="org-string">"#aaaaaa"</span>,<span class="org-variable-name">dir=</span><span class="org-constant">both</span>]
                 disruptor -&gt; listener;
                 disruptor -&gt; eventalgo;
                 disruptor -&gt; controller;
-                controller -&gt; disruptor [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#0080ff"</span>];
+                controller -&gt; disruptor [<span class="org-variable-name">color=</span><span class="org-string">"#0080ff"</span>];
         }
-        subgraph <span style="color: #836fff;">cluster</span>_broker {
-                graph [<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"broker data"</span>,
-                        <span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#909090"</span>];
-                broker [<span style="color: #dfaf8f;">shape=</span><span style="color: #b9a16c;">egg</span>,<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#ff111111"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">"#101010"</span>,<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"brokers"</span>];
-                brokeraggregator [<span style="color: #dfaf8f;">shape=</span><span style="color: #b9a16c;">egg</span>,<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#cc11cc22"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">"#101010"</span>,<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"aggregation"</span>];
-                broker -&gt; brokeraggregator [<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">none</span>];
-                brokeraggregator -&gt; trader [<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">both</span>];
+        subgraph <span class="org-function-name">cluster</span>_broker {
+                graph [<span class="org-variable-name">label=</span><span class="org-string">"broker data"</span>,
+                        <span class="org-variable-name">color=</span><span class="org-string">"#909090"</span>];
+                broker [<span class="org-variable-name">shape=</span><span class="org-constant">egg</span>,<span class="org-variable-name">color=</span><span class="org-string">"#ff111111"</span>,<span class="org-variable-name">fontcolor=</span><span class="org-string">"#101010"</span>,<span class="org-variable-name">label=</span><span class="org-string">"brokers"</span>];
+                brokeraggregator [<span class="org-variable-name">shape=</span><span class="org-constant">egg</span>,<span class="org-variable-name">color=</span><span class="org-string">"#cc11cc22"</span>,<span class="org-variable-name">fontcolor=</span><span class="org-string">"#101010"</span>,<span class="org-variable-name">label=</span><span class="org-string">"aggregation"</span>];
+                broker -&gt; brokeraggregator [<span class="org-variable-name">dir=</span><span class="org-constant">none</span>];
+                brokeraggregator -&gt; trader [<span class="org-variable-name">dir=</span><span class="org-constant">both</span>];
         }
-        localport -&gt; observer [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">dotted</span>];
-        controller -&gt; localport [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>];
-        localport -&gt; disruptor [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#0080ff"</span>];
-        listener -&gt; observer [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">dotted</span>];
-        controller -&gt; observer [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">dotted</span>];
-        controller -&gt; trader [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">both</span>];
-        controller -&gt; offwirealgo [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">dir=</span><span style="color: #b9a16c;">both</span>];
-        databases -&gt; offwirealgo [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">red</span>,<span style="color: #dfaf8f;">label=</span><span style="color: #cc9393;">"read"</span>,<span style="color: #dfaf8f;">fontcolor=</span><span style="color: #cc9393;">red</span>];
-        trader -&gt; observer [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">dotted</span>];
-        eventalgo -&gt; observer [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">dotted</span>];
-        offwirealgo -&gt; observer [<span style="color: #dfaf8f;">color=</span><span style="color: #cc9393;">"#aaaaaa"</span>,<span style="color: #dfaf8f;">style=</span><span style="color: #b9a16c;">dotted</span>];
+        localport -&gt; observer [<span class="org-variable-name">color=</span><span class="org-string">"#aaaaaa"</span>,<span class="org-variable-name">style=</span><span class="org-constant">dotted</span>];
+        controller -&gt; localport [<span class="org-variable-name">color=</span><span class="org-string">"#aaaaaa"</span>];
+        localport -&gt; disruptor [<span class="org-variable-name">color=</span><span class="org-string">"#0080ff"</span>];
+        listener -&gt; observer [<span class="org-variable-name">color=</span><span class="org-string">"#aaaaaa"</span>,<span class="org-variable-name">style=</span><span class="org-constant">dotted</span>];
+        controller -&gt; observer [<span class="org-variable-name">color=</span><span class="org-string">"#aaaaaa"</span>,<span class="org-variable-name">style=</span><span class="org-constant">dotted</span>];
+        controller -&gt; trader [<span class="org-variable-name">color=</span><span class="org-string">"#aaaaaa"</span>,<span class="org-variable-name">dir=</span><span class="org-constant">both</span>];
+        controller -&gt; offwirealgo [<span class="org-variable-name">color=</span><span class="org-string">"#aaaaaa"</span>,<span class="org-variable-name">dir=</span><span class="org-constant">both</span>];
+        databases -&gt; offwirealgo [<span class="org-variable-name">color=</span><span class="org-string">red</span>,<span class="org-variable-name">label=</span><span class="org-string">"read"</span>,<span class="org-variable-name">fontcolor=</span><span class="org-string">red</span>];
+        trader -&gt; observer [<span class="org-variable-name">color=</span><span class="org-string">"#aaaaaa"</span>,<span class="org-variable-name">style=</span><span class="org-constant">dotted</span>];
+        eventalgo -&gt; observer [<span class="org-variable-name">color=</span><span class="org-string">"#aaaaaa"</span>,<span class="org-variable-name">style=</span><span class="org-constant">dotted</span>];
+        offwirealgo -&gt; observer [<span class="org-variable-name">color=</span><span class="org-string">"#aaaaaa"</span>,<span class="org-variable-name">style=</span><span class="org-constant">dotted</span>];
 }
 </pre>
 </div>
@@ -281,7 +281,7 @@ And here's the dot code:
       Top Posts:
       
     </p>
-    <a class="postlink" href="../blog/signal-prediction.html">Signal Prediction</a><br><a class="postlink" href="../blog/event-feed-design.html">Event Feed Design</a><br><a class="postlink" href="../blog/statistical-forecasting.html">Statistical Forecasting</a><br><a class="postlink" href="../blog/latency-research.html">Latency Research</a>
+    <a class="postlink" href="../blog/event-feed-design.html">Event Feed Design</a><br><a class="postlink" href="../blog/signal-prediction.html">Signal Prediction</a><br><a class="postlink" href="../blog/statistical-forecasting.html">Statistical Forecasting</a><br><a class="postlink" href="../blog/latency-research.html">Latency Research</a>
     <p><br>Related Articles:<br></p><a class="postlink" href="../tags/design.html">design</a>
 </div>
 

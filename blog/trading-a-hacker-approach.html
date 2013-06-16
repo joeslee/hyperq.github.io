@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>Project News April 23,2013</title>
+    <title>Trading: a hacker approach?</title>
     <link rel="stylesheet" type="text/css" href="../style/css/scarce.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="generator" content="o-blog version 1.2-149-g73e41e0"/>
@@ -103,58 +103,196 @@
 <div id="page">
   <div class="row">    
     <div class="arrow_nav top">
-      <a class="previous skiphover" href="../blog/signal-prediction.html">
+      <a class="previous skiphover" href="../blog/event-feed-design.html">
                                     <span class="symbol">
                                     </span>
                                     <span class="label">
                                        older
                                     </span>
                                     <span class="tooltip">
-                                      Signal Prediction
+                                      Event Feed Design
                                     </span>
                                  </a>
       <div class="sepline"></div>
-      <a class="previous skiphover" href="../blog/zipline.html">
-                                    <span class="label">
-                                       newer
-                                    </span>
-                                    <span class="symbol">
-                                       >
-                                    </span>                                      
-                                    <span class="tooltip">
-                                      zipline
-                                    </span>
-                                 </a>
+      
     </div>
   </div>
   <div class="row-fluid">
     <div class="span9">
       <article>
         <header class="article-header">
-          <h1 class="post-header">Project News April 23,2013</h1>
+          <h1 class="post-header">Trading: a hacker approach?</h1>
           <h3 class="date-header"></h3>
-          <h3 class="date-header">23 April 2013</h3>
+          <h3 class="date-header">16 June 2013</h3>
         </header>
         <div class="article-content">
-          <p>
-A discussion group has been formed at <a href="https://groups.google.com/forum/?hl=en&fromgroups#!forum/hft-discuss">hft-discuss</a>
+          <blockquote>
+<p>
+You are startled by the sound of an alarm. It is followed by an urgent voice
+which warns that the Arcada has been boarded by unknown intruders. It ends
+abruptly. <br/>
+&gt; <br/>
+<a href="http://sarien.net/spacequest#anotherhallway">start of Space Quest I</a>
+</p>
+</blockquote>
+
+<p>
+Most hackers involved in the world of trading enter from the technology side
+of the business. And there's two main gateways are via trader enhancement or
+trader replacement. Making traders smarter and faster using technology is one
+well worn road. There's lots of room to streamline the human trading process:
+automation of regular tasks, expansion of back-testing capabilities and easy
+gains to be had in better trader dashboards to get information when and where
+needed.
 </p>
 
 <p>
-Some near-term goals include:
+Trader replacement is a little harder but also hackable. There's plenty of
+tricks out there to shave a few msecs of computation and execution time, and
+bringing bigdata testing and conversion of a sometimes fuzzy human rule-set
+into a more rigorous computational exercise.
 </p>
+
+<p>
+Either way, a trading runtime ends up paving the cow-paths of institutional
+finance which look somewhat like this:
+</p>
+
+<img src="../assets/ats_features_diagram.svg" alt="design" width="100%">
+
+<p>
+Over at <a href="http://hyperq.github.io">hyperq</a>, we've been thinking about the above diagram and how to get
+together a decent trading runtime. Now when a wildly ambitious objective meets
+a meager resource base you have two options:
+</p>
+
 <ul class="org-ul">
-<li>moving the project to an organization basis (which will involve a name
-change (watch this space).
+<li>go on a <a href="../blog/trading-a-hacker-approach/ENOxd.jpg">kamikaze</a> death march
 </li>
-<li>installing a modern communication toolkit
-</li>
-<li>exploring automated deployment and build options
-</li>
-<li>discussing the relative strengths and weaknesses of python versus R, as they
-apply to the problem domain.
+<li>take the team on a <a href="http://www.qt.com.au/news/abolish-fringe-benefits-tax-bring-back-long-lunch-/1895360/">long lunch</a> and redefine
 </li>
 </ul>
+
+<p>
+Since this is all open source, our long lunch redefinitional musings led us to
+computer sciencing the bejesus out of the trading problem domain.
+</p>
+
+<p>
+Here's the alternative design specification document we wrote on one of the
+drink coasters:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span class="org-function-name">trade</span> <span class="org-variable-name">::</span> [<span class="org-type">MarketData</span> a] <span class="org-variable-name">-&gt;</span> <span class="org-type">Book</span> b <span class="org-variable-name">-&gt;</span> <span class="org-type">IO</span> [<span class="org-type">Order</span> b]
+<span class="org-function-name">main</span> <span class="org-variable-name">=</span> forever <span class="org-variable-name">.</span> <span class="org-keyword">do</span> <span class="org-variable-name">.</span> trade
+</pre>
+</div>
+
+<p>
+Having just cut 3 months out of our critical path we even had time for some
+Zork:
+</p>
+
+<blockquote>
+<p>
+You are in an open field west of a big white house with a boarded
+front door.
+There is a small mailbox here.<br/>
+&gt; <br/>
+<a href="http://thcnet.net/error/index.php">Zork</a>
+</p>
+</blockquote>
+
+<p>
+Long lunch over and the new specs still seem sweet. Some immediate ideas:
+</p>
+
+<ul class="org-ul">
+<li>the concept of market data becomes naturally abstractable.  Data can
+include multiple sources, news flow or whatever universe observation you
+can think of. Do you need the Market prefix? 
+</li>
+<li>there is an immediate reminder of real world interaction with the IO monad.
+</li>
+<li>subsequent functions scan more easily and can be categorized - often as a
+matter of taste.  For example, a complex event process (CEP), a fashionable
+big deal in trading system circles, seems logically to have this type:
+
+<div class="org-src-container">
+
+<pre class="src src-haskell"><span class="org-function-name">cep</span> <span class="org-variable-name">::</span> [<span class="org-type">MarketData</span> a] <span class="org-variable-name">-&gt;</span> <span class="org-type">MarketData</span> a
+</pre>
+</div>
+
+<p>
+Whether to put this prior to or inside the trade function then becomes a
+matter of taste.
+</p>
+</li>
+
+<li>Should the input be [Maybe MarketData a]? This puts the real world
+likelihood of the data feed being down front and center, rather than
+designing a system assuming an idealized world and then panicking when
+something breaks.
+</li>
+</ul>
+
+<p>
+More generally, a more hacker approach leads you away from bigdata phd
+solutions that dominate hft and algorithmic trading and towards the important,
+small and obvious stuff (that may not lend themselves to a phd dissertation).
+The market is closed (unexpectedly) - I better not try and trade, or I had
+better try and trade elsewhere given the sorry state of Book a. Gee, there's a
+lot of volatility out and about today - is it a big news day? The last news
+piece of note was a facebook announcement. Wow, facebook really tanked but but
+zygna didn't - what gives there? Someone must have forgot to turn the market
+feed on. etc etc
+</p>
+
+<p>
+And I suspect this approach leads further to a big, big gap in the market.
+Imagine on a busy day in the market you could slow down time. The e-mini
+suddenly drops by 1% in the space of a few heartbeats. What just happened?
+Rewind the video tape and look more carefully at the last few minutes. Look
+back at the news-flow over the last 10 minutes and look for keywords. Check
+other markets - are they all tanking or is it just a local event? Or did some
+human just enter an extra zero or three again?
+</p>
+
+<p>
+If you can do all of that in a few seconds your process is way ahead of the
+competition. The HFT guys have already panicked and run away to hide behind
+their statistical order flow models. Algorithmic trades are pinging their stop
+loss instructions blindly creating what may be a forecastable trend.
+Meanwhile, discretionary day traders have just noticed a small section of one
+of their screen is flashing red&#x2026;
+</p>
+
+<p>
+In this zone, a hacker trader with a hacker-like trading process can find all
+sorts of edges and market tells.
+</p>
+
+<p>
+So do we want our trading process to look and feel like a big finance
+organizational structure? Or should for hyperq to have a Roger Wilco attitude:
+</p>
+
+<blockquote>
+<p>
+Anyway, I aborted the launch and jetted out of there in an escape pod. I
+crawled into the sleep chamber, and the next thing I knew, I woke up in a
+trash freighter! Yeah, things didn't look too good, but I blasted out of the
+freighter in an old jalopy I resurrected from the rubble.
+~ <a href="http://spacequest.wikia.com/wiki/Roger's_Dialogue">Roger Wilco</a>
+</p>
+</blockquote>
+
+<p>
+Much more fun than a death march to pave the cow-paths.
+</p>
 
         </div>
       </article>

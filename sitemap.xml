@@ -2,21 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>http://hyperq.github.io/</loc>
-    <lastmod>2013-06-13T15:59:55Z</lastmod>
+    <lastmod>2013-06-16T17:51:45Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://hyperq.github.io/index.html</loc>
-    <lastmod>2013-06-13T15:59:00Z</lastmod>
+    <lastmod>2013-06-16T17:51:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
 <url>
     <loc>http://hyperq.github.io/tags.html</loc>
-    <lastmod>2013-06-13T15:59:00Z</lastmod>
+    <lastmod>2013-06-16T17:51:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -29,22 +29,29 @@
   </url>
 
 <url>
+    <loc>http://hyperq.github.io/blog/trading-a-hacker-approach/index.html</loc>
+    <lastmod>2013-06-16T17:51:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+<url>
     <loc>http://hyperq.github.io/blog/latency-research/index.html</loc>
-    <lastmod>2013-06-13T15:59:00Z</lastmod>
+    <lastmod>2013-06-16T17:51:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
 <url>
     <loc>http://hyperq.github.io/blog/statistical-forecasting/index.html</loc>
-    <lastmod>2013-06-13T15:59:00Z</lastmod>
+    <lastmod>2013-06-16T17:51:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
 <url>
     <loc>http://hyperq.github.io/blog/signal-prediction/index.html</loc>
-    <lastmod>2013-06-13T15:59:00Z</lastmod>
+    <lastmod>2013-06-16T17:51:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -52,8 +59,8 @@
 
 
   <url>
-    <loc>http://hyperq.github.io/blog/signal-prediction.html</loc>
-    <lastmod>2013-06-13T15:59:00Z</lastmod>
+    <loc>http://hyperq.github.io/blog/trading-a-hacker-approach.html</loc>
+    <lastmod>2013-06-16T08:19:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -78,6 +85,12 @@
 <url>
     <loc>http://hyperq.github.io/blog/project-news-april-232013.html</loc>
     <lastmod>2013-04-23T14:44:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<url>
+    <loc>http://hyperq.github.io/blog/signal-prediction.html</loc>
+    <lastmod>2013-04-22T09:17:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

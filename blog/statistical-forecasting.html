@@ -60,7 +60,7 @@
      <a href="../about.html"><i>icon-user icon-white</i> About</a>
    </li>
    <li>
-  <a class="caret-before" href="../blog/signal-prediction.html">
+  <a class="caret-before" href="../blog/trading-a-hacker-approach.html">
        <i class="icon-coffee icon-white">
        </i>
        Blog
@@ -72,7 +72,7 @@
      <ul class="dropdown-menu">
 
 
-<li><a href="../blog/signal-prediction.html">Signal Prediction</a></li><li><a href="../blog/event-feed-design.html">Event Feed Design</a></li><li><a href="../blog/hyperq.html">hyperq</a></li><li><a href="../blog/zipline.html">zipline</a></li>
+<li><a href="../blog/trading-a-hacker-approach.html">Trading: a hacker approach?</a></li><li><a href="../blog/event-feed-design.html">Event Feed Design</a></li><li><a href="../blog/hyperq.html">hyperq</a></li><li><a href="../blog/zipline.html">zipline</a></li>
 
   </ul>
 
@@ -114,7 +114,7 @@
                                     </span>
                                  </a>
       <div class="sepline"></div>
-      <a class="previous skiphover" href="../blog/project-news-april-232013.html">
+      <a class="previous skiphover" href="../blog/signal-prediction.html">
                                     <span class="label">
                                        newer
                                     </span>
@@ -122,7 +122,7 @@
                                        >
                                     </span>                                      
                                     <span class="tooltip">
-                                      Project News April 23,2013
+                                      Signal Prediction
                                     </span>
                                  </a>
     </div>
@@ -313,19 +313,19 @@ the previous example:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-R">max.n <span style="color: #b9a16c;">=</span> <span style="color: #7fa08f;">20</span>
-days <span style="color: #b9a16c;">=</span> <span style="color: #7fa08f;">10</span>
-k.weights <span style="color: #b9a16c;">=</span> <span style="color: #b9a16c;">-</span><span style="color: #bf89d1;">(</span><span style="color: #7fa08f;">1</span><span style="color: #b9a16c;">-</span><span style="color: #bf89d1;">(</span><span style="color: #7fa08f;">1</span><span style="color: #b9a16c;">/</span>days<span style="color: #bf89d1;">))</span>^<span style="color: #bf89d1;">(</span><span style="color: #7fa08f;">0</span>:<span style="color: #bf89d1;">(</span>max.n<span style="color: #b9a16c;">-</span><span style="color: #7fa08f;">1</span><span style="color: #bf89d1;">))</span><span style="color: #b9a16c;">/</span>days <span style="color: #7f9f7f;"># </span><span style="color: #7f9f7f;">the ema weights</span>
-k.weights<span style="color: #bf89d1;">[</span><span style="color: #7fa08f;">1</span><span style="color: #bf89d1;">]</span> <span style="color: #b9a16c;">=</span> <span style="color: #7fa08f;">1</span> <span style="color: #b9a16c;">+</span> k.weights<span style="color: #bf89d1;">[</span><span style="color: #7fa08f;">1</span><span style="color: #bf89d1;">]</span> <span style="color: #7f9f7f;"># </span><span style="color: #7f9f7f;">the current price</span>
-ema.weights <span style="color: #b9a16c;">=</span> <span style="color: #7a92d4;">cumsum</span><span style="color: #bf89d1;">(</span>k.weights<span style="color: #bf89d1;">)</span>
-ema.weights <span style="color: #b9a16c;">=</span> ema.weights<span style="color: #b9a16c;">/</span><span style="color: #7a92d4;">sum</span><span style="color: #bf89d1;">(</span>ema.weights<span style="color: #bf89d1;">)</span> <span style="color: #7f9f7f;"># </span><span style="color: #7f9f7f;">normalising so sum=1</span>
-sma.weights <span style="color: #b9a16c;">=</span> <span style="color: #7a92d4;">seq</span><span style="color: #bf89d1;">(</span><span style="color: #7fa08f;">0.95</span>,<span style="color: #7fa08f;">0.00</span>,by<span style="color: #b9a16c;">=-</span><span style="color: #7fa08f;">0.05</span><span style="color: #bf89d1;">)</span><span style="color: #b9a16c;">/</span><span style="color: #7a92d4;">sum</span><span style="color: #bf89d1;">(</span><span style="color: #7a92d4;">seq</span><span style="color: #bf89d1;">(</span><span style="color: #7fa08f;">0.95</span>,<span style="color: #7fa08f;">0.00</span>,by<span style="color: #b9a16c;">=-</span><span style="color: #7fa08f;">0.05</span><span style="color: #bf89d1;">))</span>
-<span style="color: #b9a16c;">require</span><span style="color: #bf89d1;">(</span>reshape<span style="color: #bf89d1;">)</span>
-<span style="color: #b9a16c;">require</span><span style="color: #bf89d1;">(</span>ggplot2<span style="color: #bf89d1;">)</span>
-df.long <span style="color: #b9a16c;">=</span> <span style="color: #7a92d4;">melt</span><span style="color: #bf89d1;">(</span><span style="color: #7a92d4;">data.frame</span><span style="color: #bf89d1;">(</span>ema.weights,sma.weights,time<span style="color: #b9a16c;">=</span><span style="color: #7fa08f;">0</span>:<span style="color: #bf89d1;">(</span>max.n<span style="color: #b9a16c;">-</span><span style="color: #7fa08f;">1</span><span style="color: #bf89d1;">))</span>,id<span style="color: #b9a16c;">=</span><span style="color: #cc9393;">"time"</span><span style="color: #bf89d1;">)</span>
-g <span style="color: #b9a16c;">=</span> <span style="color: #7a92d4;">ggplot</span><span style="color: #bf89d1;">(</span>data<span style="color: #b9a16c;">=</span>df.long,
-       <span style="color: #7a92d4;">aes</span><span style="color: #bf89d1;">(</span>x<span style="color: #b9a16c;">=</span>time, y<span style="color: #b9a16c;">=</span>value,color<span style="color: #b9a16c;">=</span>variable<span style="color: #bf89d1;">))</span> <span style="color: #b9a16c;">+</span>
-  <span style="color: #7a92d4;">geom_line</span><span style="color: #bf89d1;">()</span>
+<pre class="src src-R">max.n <span class="org-constant">=</span> <span class="org-ess-numbers">20</span>
+days <span class="org-constant">=</span> <span class="org-ess-numbers">10</span>
+k.weights <span class="org-constant">=</span> <span class="org-constant">-</span><span class="org-builtin">(</span><span class="org-ess-numbers">1</span><span class="org-constant">-</span><span class="org-builtin">(</span><span class="org-ess-numbers">1</span><span class="org-constant">/</span>days<span class="org-builtin">))</span>^<span class="org-builtin">(</span><span class="org-ess-numbers">0</span>:<span class="org-builtin">(</span>max.n<span class="org-constant">-</span><span class="org-ess-numbers">1</span><span class="org-builtin">))</span><span class="org-constant">/</span>days <span class="org-comment-delimiter"># </span><span class="org-comment">the ema weights</span>
+k.weights<span class="org-builtin">[</span><span class="org-ess-numbers">1</span><span class="org-builtin">]</span> <span class="org-constant">=</span> <span class="org-ess-numbers">1</span> <span class="org-constant">+</span> k.weights<span class="org-builtin">[</span><span class="org-ess-numbers">1</span><span class="org-builtin">]</span> <span class="org-comment-delimiter"># </span><span class="org-comment">the current price</span>
+ema.weights <span class="org-constant">=</span> <span class="org-ess-function-call">cumsum</span><span class="org-builtin">(</span>k.weights<span class="org-builtin">)</span>
+ema.weights <span class="org-constant">=</span> ema.weights<span class="org-constant">/</span><span class="org-ess-function-call">sum</span><span class="org-builtin">(</span>ema.weights<span class="org-builtin">)</span> <span class="org-comment-delimiter"># </span><span class="org-comment">normalising so sum=1</span>
+sma.weights <span class="org-constant">=</span> <span class="org-ess-function-call">seq</span><span class="org-builtin">(</span><span class="org-ess-numbers">0.95</span>,<span class="org-ess-numbers">0.00</span>,by<span class="org-constant">=-</span><span class="org-ess-numbers">0.05</span><span class="org-builtin">)</span><span class="org-constant">/</span><span class="org-ess-function-call">sum</span><span class="org-builtin">(</span><span class="org-ess-function-call">seq</span><span class="org-builtin">(</span><span class="org-ess-numbers">0.95</span>,<span class="org-ess-numbers">0.00</span>,by<span class="org-constant">=-</span><span class="org-ess-numbers">0.05</span><span class="org-builtin">))</span>
+<span class="org-constant">require</span><span class="org-builtin">(</span>reshape<span class="org-builtin">)</span>
+<span class="org-constant">require</span><span class="org-builtin">(</span>ggplot2<span class="org-builtin">)</span>
+df.long <span class="org-constant">=</span> <span class="org-ess-function-call">melt</span><span class="org-builtin">(</span><span class="org-ess-function-call">data.frame</span><span class="org-builtin">(</span>ema.weights,sma.weights,time<span class="org-constant">=</span><span class="org-ess-numbers">0</span>:<span class="org-builtin">(</span>max.n<span class="org-constant">-</span><span class="org-ess-numbers">1</span><span class="org-builtin">))</span>,id<span class="org-constant">=</span><span class="org-string">"time"</span><span class="org-builtin">)</span>
+g <span class="org-constant">=</span> <span class="org-ess-function-call">ggplot</span><span class="org-builtin">(</span>data<span class="org-constant">=</span>df.long,
+       <span class="org-ess-function-call">aes</span><span class="org-builtin">(</span>x<span class="org-constant">=</span>time, y<span class="org-constant">=</span>value,color<span class="org-constant">=</span>variable<span class="org-builtin">))</span> <span class="org-constant">+</span>
+  <span class="org-ess-function-call">geom_line</span><span class="org-builtin">()</span>
 g
 </pre>
 </div>
@@ -435,14 +435,14 @@ volatility weights.
 
 <div class="org-src-container">
 
-<pre class="src src-R">weighted.historicals <span style="color: #b9a16c;">=</span> <span style="color: #f0dfaf; font-weight: bold;">function</span><span style="color: #bf89d1;">(</span>rets, hist.weights<span style="color: #bf89d1;">)</span> <span style="color: #bf89d1;">{</span>
-  hmean<span style="color: #b9a16c;">=</span><span style="color: #7a92d4;">as.double</span><span style="color: #bf89d1;">(</span><span style="color: #7a92d4;">filter</span><span style="color: #bf89d1;">(</span>rets,hist.weights$mean,sides<span style="color: #b9a16c;">=</span><span style="color: #7fa08f;">1</span><span style="color: #bf89d1;">))</span>
-  hmean<span style="color: #bf89d1;">[</span><span style="color: #7fa08f;">1</span>:<span style="color: #7a92d4;">length</span><span style="color: #bf89d1;">(</span>hist.weights$mean<span style="color: #bf89d1;">)]</span><span style="color: #b9a16c;">=</span><span style="color: #7a92d4;">cumsum</span><span style="color: #bf89d1;">(</span>rets<span style="color: #bf89d1;">[</span><span style="color: #7fa08f;">1</span>:<span style="color: #7a92d4;">length</span><span style="color: #bf89d1;">(</span>hist.weights$mean<span style="color: #bf89d1;">)]</span>*<span style="color: #7a92d4;">t</span><span style="color: #bf89d1;">(</span><span style="color: #7a92d4;">as.matrix</span><span style="color: #bf89d1;">(</span>hist.weights$mean<span style="color: #bf89d1;">)))</span>
-  xvol<span style="color: #b9a16c;">=</span><span style="color: #bf89d1;">(</span>rets<span style="color: #b9a16c;">-</span>hmean<span style="color: #bf89d1;">)</span>^<span style="color: #7fa08f;">2</span>
-  hvol<span style="color: #b9a16c;">=</span><span style="color: #7a92d4;">as.double</span><span style="color: #bf89d1;">(</span><span style="color: #7a92d4;">filter</span><span style="color: #bf89d1;">(</span>xvol,hist.weights$vol,sides<span style="color: #b9a16c;">=</span><span style="color: #7fa08f;">1</span><span style="color: #bf89d1;">))</span>^<span style="color: #7fa08f;">0.5</span>
-  hvol<span style="color: #bf89d1;">[</span><span style="color: #7fa08f;">1</span>:<span style="color: #7a92d4;">length</span><span style="color: #bf89d1;">(</span>hist.weights$vol<span style="color: #bf89d1;">)]</span><span style="color: #b9a16c;">=</span><span style="color: #7a92d4;">cumsum</span><span style="color: #bf89d1;">(</span>xvol<span style="color: #bf89d1;">[</span><span style="color: #7a92d4;">length</span><span style="color: #bf89d1;">(</span>hist.weights$vol<span style="color: #bf89d1;">)]</span>*<span style="color: #7a92d4;">t</span><span style="color: #bf89d1;">(</span><span style="color: #7a92d4;">as.matrix</span><span style="color: #bf89d1;">(</span>hist.weights$vol<span style="color: #bf89d1;">)))</span>^<span style="color: #7fa08f;">0.5</span>
-  weighted.historicals<span style="color: #b9a16c;">=</span><span style="color: #7a92d4;">data.frame</span><span style="color: #bf89d1;">(</span>hmean<span style="color: #b9a16c;">=</span>hmean, hvol<span style="color: #b9a16c;">=</span>hvol<span style="color: #bf89d1;">)</span>
-<span style="color: #bf89d1;">}</span>
+<pre class="src src-R">weighted.historicals <span class="org-constant">=</span> <span class="org-keyword">function</span><span class="org-builtin">(</span>rets, hist.weights<span class="org-builtin">)</span> <span class="org-builtin">{</span>
+  hmean<span class="org-constant">=</span><span class="org-ess-function-call">as.double</span><span class="org-builtin">(</span><span class="org-ess-function-call">filter</span><span class="org-builtin">(</span>rets,hist.weights$mean,sides<span class="org-constant">=</span><span class="org-ess-numbers">1</span><span class="org-builtin">))</span>
+  hmean<span class="org-builtin">[</span><span class="org-ess-numbers">1</span>:<span class="org-ess-function-call">length</span><span class="org-builtin">(</span>hist.weights$mean<span class="org-builtin">)]</span><span class="org-constant">=</span><span class="org-ess-function-call">cumsum</span><span class="org-builtin">(</span>rets<span class="org-builtin">[</span><span class="org-ess-numbers">1</span>:<span class="org-ess-function-call">length</span><span class="org-builtin">(</span>hist.weights$mean<span class="org-builtin">)]</span>*<span class="org-ess-function-call">t</span><span class="org-builtin">(</span><span class="org-ess-function-call">as.matrix</span><span class="org-builtin">(</span>hist.weights$mean<span class="org-builtin">)))</span>
+  xvol<span class="org-constant">=</span><span class="org-builtin">(</span>rets<span class="org-constant">-</span>hmean<span class="org-builtin">)</span>^<span class="org-ess-numbers">2</span>
+  hvol<span class="org-constant">=</span><span class="org-ess-function-call">as.double</span><span class="org-builtin">(</span><span class="org-ess-function-call">filter</span><span class="org-builtin">(</span>xvol,hist.weights$vol,sides<span class="org-constant">=</span><span class="org-ess-numbers">1</span><span class="org-builtin">))</span>^<span class="org-ess-numbers">0.5</span>
+  hvol<span class="org-builtin">[</span><span class="org-ess-numbers">1</span>:<span class="org-ess-function-call">length</span><span class="org-builtin">(</span>hist.weights$vol<span class="org-builtin">)]</span><span class="org-constant">=</span><span class="org-ess-function-call">cumsum</span><span class="org-builtin">(</span>xvol<span class="org-builtin">[</span><span class="org-ess-function-call">length</span><span class="org-builtin">(</span>hist.weights$vol<span class="org-builtin">)]</span>*<span class="org-ess-function-call">t</span><span class="org-builtin">(</span><span class="org-ess-function-call">as.matrix</span><span class="org-builtin">(</span>hist.weights$vol<span class="org-builtin">)))</span>^<span class="org-ess-numbers">0.5</span>
+  weighted.historicals<span class="org-constant">=</span><span class="org-ess-function-call">data.frame</span><span class="org-builtin">(</span>hmean<span class="org-constant">=</span>hmean, hvol<span class="org-constant">=</span>hvol<span class="org-builtin">)</span>
+<span class="org-builtin">}</span>
 </pre>
 </div>
 </div>
@@ -474,11 +474,11 @@ standard set used in forecasting.
 
 <div class="org-src-container">
 
-<pre class="src src-R">mom.weights <span style="color: #b9a16c;">=</span> <span style="color: #7a92d4;">rep</span><span style="color: #bf89d1;">(</span><span style="color: #7fa08f;">0.05</span>,<span style="color: #7fa08f;">20</span><span style="color: #bf89d1;">)</span>
-df.long <span style="color: #b9a16c;">=</span> <span style="color: #7a92d4;">melt</span><span style="color: #bf89d1;">(</span><span style="color: #7a92d4;">data.frame</span><span style="color: #bf89d1;">(</span>ema.weights,sma.weights,mom.weights,time<span style="color: #b9a16c;">=</span><span style="color: #7fa08f;">0</span>:<span style="color: #bf89d1;">(</span>max.n<span style="color: #b9a16c;">-</span><span style="color: #7fa08f;">1</span><span style="color: #bf89d1;">))</span>,id<span style="color: #b9a16c;">=</span><span style="color: #cc9393;">"time"</span><span style="color: #bf89d1;">)</span>
-<span style="color: #7a92d4;">ggplot</span><span style="color: #bf89d1;">(</span>data<span style="color: #b9a16c;">=</span>df.long,
-         <span style="color: #7a92d4;">aes</span><span style="color: #bf89d1;">(</span>x<span style="color: #b9a16c;">=</span>time, y<span style="color: #b9a16c;">=</span>value,color<span style="color: #b9a16c;">=</span>variable<span style="color: #bf89d1;">))</span> <span style="color: #b9a16c;">+</span>
-    <span style="color: #7a92d4;">geom_line</span><span style="color: #bf89d1;">()</span>
+<pre class="src src-R">mom.weights <span class="org-constant">=</span> <span class="org-ess-function-call">rep</span><span class="org-builtin">(</span><span class="org-ess-numbers">0.05</span>,<span class="org-ess-numbers">20</span><span class="org-builtin">)</span>
+df.long <span class="org-constant">=</span> <span class="org-ess-function-call">melt</span><span class="org-builtin">(</span><span class="org-ess-function-call">data.frame</span><span class="org-builtin">(</span>ema.weights,sma.weights,mom.weights,time<span class="org-constant">=</span><span class="org-ess-numbers">0</span>:<span class="org-builtin">(</span>max.n<span class="org-constant">-</span><span class="org-ess-numbers">1</span><span class="org-builtin">))</span>,id<span class="org-constant">=</span><span class="org-string">"time"</span><span class="org-builtin">)</span>
+<span class="org-ess-function-call">ggplot</span><span class="org-builtin">(</span>data<span class="org-constant">=</span>df.long,
+         <span class="org-ess-function-call">aes</span><span class="org-builtin">(</span>x<span class="org-constant">=</span>time, y<span class="org-constant">=</span>value,color<span class="org-constant">=</span>variable<span class="org-builtin">))</span> <span class="org-constant">+</span>
+    <span class="org-ess-function-call">geom_line</span><span class="org-builtin">()</span>
 </pre>
 </div>
 
@@ -535,7 +535,7 @@ of the proposed system design.
       Top Posts:
       
     </p>
-    <a class="postlink" href="../blog/signal-prediction.html">Signal Prediction</a><br><a class="postlink" href="../blog/event-feed-design.html">Event Feed Design</a><br><a class="postlink" href="../blog/statistical-forecasting.html">Statistical Forecasting</a><br><a class="postlink" href="../blog/latency-research.html">Latency Research</a>
+    <a class="postlink" href="../blog/event-feed-design.html">Event Feed Design</a><br><a class="postlink" href="../blog/signal-prediction.html">Signal Prediction</a><br><a class="postlink" href="../blog/statistical-forecasting.html">Statistical Forecasting</a><br><a class="postlink" href="../blog/latency-research.html">Latency Research</a>
     <p><br>Related Articles:<br></p><a class="postlink" href="../tags/r.html">R</a>
 </div>
 
