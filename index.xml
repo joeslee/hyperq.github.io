@@ -9,7 +9,7 @@
 <title type="html">Trading: a hacker approach?</title>
 <author><name>Tony Day</name></author>
 <link href="http://hyperq.github.io/blog/trading-a-hacker-approach.html"/>
-<updated>2013-06-16T08:19:00Z</updated>
+<updated>2013-06-17T08:19:00Z</updated>
 <published>2013-06-16T08:19:00Z</published>
 <id>http://hyperq.github.io/blog/trading-a-hacker-approach.html</id>
 <content type="html">&lt;blockquote&gt;
@@ -44,7 +44,7 @@ Either way, a trading runtime ends up paving the cow-paths of institutional
 finance which look somewhat like this:
 &lt;/p&gt;
 
-&lt;img src="&lt;lisp&gt;(ob:path-to-root)&lt;/lisp&gt;/&lt;lisp&gt;(ob:blog-assets-dir BLOG)&lt;/lisp&gt;/ats_features_diagram.svg" alt="design" width="100%"&gt;
+&lt;img src="hyperq.github.io/assets/ats_features_diagram.png" alt="design" width="100%"&gt;
 
 &lt;p&gt;
 Over at &lt;a href="http://hyperq.github.io"&gt;hyperq&lt;/a&gt;, we've been thinking about the above diagram and how to get
